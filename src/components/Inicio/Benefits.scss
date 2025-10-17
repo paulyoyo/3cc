@@ -1,0 +1,74 @@
+// Benefits Component Styles
+$gold: #C4A574;
+$gold-dark: #A68A5F;
+
+.benefits-section {
+  .benefit-card {
+    background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba($gold, 0.4);
+
+      .icon-wrapper {
+        transform: scale(1.1);
+      }
+    }
+
+    .icon-wrapper {
+      transition: transform 0.3s ease;
+
+      > div {
+        backdrop-filter: blur(10px);
+        transition: background-color 0.3s ease;
+      }
+
+      &:hover > div {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .benefits-section {
+    .benefit-card {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

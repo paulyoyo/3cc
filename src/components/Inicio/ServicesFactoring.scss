@@ -1,0 +1,85 @@
+// ServicesFactoring Component Styles
+$gold: #C4A574;
+$gold-dark: #A68A5F;
+$gray-darker: #4a4a4a;
+
+.services-factoring-section {
+  background-color: $gray-darker;
+
+  .service-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    &.featured-card {
+      background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+      box-shadow: 0 8px 30px rgba($gold, 0.3);
+
+      &:hover {
+        box-shadow: 0 20px 50px rgba($gold, 0.5);
+      }
+    }
+
+    &.standard-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+
+      .icon-wrapper > div {
+        transform: scale(1.1);
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    .icon-wrapper {
+      > div {
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .services-factoring-section {
+    .service-card {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

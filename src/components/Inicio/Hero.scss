@@ -1,0 +1,328 @@
+@use "sass:color";
+
+// Breakpoints
+$tablet: 768px;
+$desktop: 992px;
+$large: 1200px;
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hero {
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  padding: 100px 20px 80px;
+
+  @media (min-width: $tablet) {
+    min-height: 700px;
+    padding: 120px 40px 100px;
+  }
+
+  @media (min-width: $desktop) {
+    min-height: 800px;
+  }
+
+  // Decorative circles in background
+  &::before {
+    content: "";
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+
+    @media (min-width: $desktop) {
+      width: 600px;
+      height: 600px;
+      right: -50px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+
+    @media (min-width: $desktop) {
+      width: 700px;
+      height: 700px;
+      right: -100px;
+    }
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    @media (min-width: $desktop) {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+
+  // Left Content
+  &__content {
+    color: #ffffff;
+  }
+
+  &__title {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+
+    @media (min-width: $tablet) {
+      font-size: 50px;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 100px;
+    }
+
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+
+    @media (min-width: $tablet) {
+      font-size: 18px;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 24px;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    @media (min-width: $tablet) {
+      gap: 60px;
+    }
+  }
+
+  &__stat {
+    &-number {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 2px;
+      color: #ffffff;
+
+      @media (min-width: $tablet) {
+        font-size: 28px;
+      }
+
+      @media (min-width: $desktop) {
+        font-size: 36px;
+      }
+    }
+
+    &-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+      margin-top: 2px;
+
+      @media (min-width: $tablet) {
+        font-size: 14px;
+      }
+
+      @media (min-width: $desktop) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  // Right Form Card
+  &__form-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: $desktop) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__form-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 450px;
+
+    @media (min-width: $tablet) {
+      padding: 40px 35px;
+    }
+  }
+
+  &__form-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+
+    @media (min-width: $tablet) {
+      font-size: 20px;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 36px;
+    }
+  }
+
+  &__form-subtitle {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    font-weight: 400;
+
+    @media (min-width: $desktop) {
+      font-size: 24px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__form-input,
+  &__form-textarea {
+    width: 92%;
+    padding: 14px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #f8f8f8;
+    color: #333333;
+
+    &::placeholder {
+      color: #999999;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--desaturated-dark-orange, #877458);
+      background: #ffffff;
+    }
+
+    &.error {
+      border-color: #e74c3c;
+      background: #fef5f5;
+
+      &:focus {
+        border-color: #e74c3c;
+      }
+    }
+  }
+
+  &__form-error {
+    color: #e74c3c;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  &__form-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 5px;
+
+    &.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    &.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  }
+
+  &__form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__form-button {
+    width: 100%;
+    padding: 15px 30px;
+    background: var(--desaturated-dark-orange, #877458);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(135, 116, 88, 0.3);
+
+    &:hover:not(:disabled) {
+      background: color.adjust(#877458, $lightness: -8%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(135, 116, 88, 0.4);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

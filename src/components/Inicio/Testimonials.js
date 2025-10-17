@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Testimonials.scss";
 
 export default function Testimonials() {
   const testimonials = [
@@ -26,23 +27,36 @@ export default function Testimonials() {
   };
 
   return (
-    <section>
-      <div>
-        <div>
-          <span>66</span>
+    <section className="testimonials-section py-16 md:py-24 bg-gray-600">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="quote-mark-wrapper text-center mb-8">
+          <span className="quote-mark text-8xl md:text-9xl font-serif text-white/30">
+            66
+          </span>
         </div>
 
-        <h2>Lo que dicen nuestros clientes</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-12 md:mb-16">
+          Lo que dicen nuestros clientes
+        </h2>
 
-        <div>
-          <div>
-            <p>{testimonials[currentIndex].text}</p>
-            <p>{testimonials[currentIndex].author}</p>
+        <div className="testimonial-carousel relative">
+          <div className="testimonial-content bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-8">
+            <p className="text-lg md:text-xl text-white leading-relaxed mb-6 text-center">
+              {testimonials[currentIndex].text}
+            </p>
+            <p className="text-base md:text-lg text-gold font-semibold text-center mb-4">
+              {testimonials[currentIndex].author}
+            </p>
 
-            <div>
+            <div className="star-rating flex justify-center gap-1">
               {Array.from({ length: 5 }, (_, index) => (
                 <span
                   key={index}
+                  className={`text-2xl ${
+                    index < testimonials[currentIndex].rating
+                      ? "text-gold"
+                      : "text-gray-400"
+                  }`}
                   data-filled={index < testimonials[currentIndex].rating}
                   aria-label={`Star ${index + 1}`}
                 >
@@ -52,11 +66,12 @@ export default function Testimonials() {
             </div>
           </div>
 
-          <div>
+          <div className="navigation-buttons flex justify-center gap-4 mb-6">
             <button
               type="button"
               onClick={handlePrevious}
               aria-label="Previous testimonial"
+              className="nav-button w-12 h-12 rounded-full bg-white/20 hover:bg-gold text-white text-2xl flex items-center justify-center transition-all hover:scale-110"
             >
               ‹
             </button>
@@ -64,12 +79,13 @@ export default function Testimonials() {
               type="button"
               onClick={handleNext}
               aria-label="Next testimonial"
+              className="nav-button w-12 h-12 rounded-full bg-white/20 hover:bg-gold text-white text-2xl flex items-center justify-center transition-all hover:scale-110"
             >
               ›
             </button>
           </div>
 
-          <div>
+          <div className="pagination-dots flex justify-center gap-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -77,6 +93,11 @@ export default function Testimonials() {
                 onClick={() => setCurrentIndex(index)}
                 aria-label={`Go to testimonial ${index + 1}`}
                 aria-current={currentIndex === index}
+                className={`dot w-3 h-3 rounded-full transition-all ${
+                  currentIndex === index
+                    ? "bg-gold w-8"
+                    : "bg-white/40 hover:bg-white/60"
+                }`}
               />
             ))}
           </div>

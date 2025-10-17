@@ -1,0 +1,87 @@
+// Testimonials Component Styles
+$gold: #C4A574;
+$gold-dark: #A68A5F;
+$gray-dark: #666666;
+
+.testimonials-section {
+  background-color: $gray-dark;
+  position: relative;
+
+  .quote-mark-wrapper {
+    .quote-mark {
+      display: inline-block;
+      line-height: 1;
+      font-weight: 700;
+    }
+  }
+
+  .testimonial-carousel {
+    .testimonial-content {
+      backdrop-filter: blur(10px);
+      transition: all 0.5s ease;
+      animation: fadeIn 0.6s ease;
+
+      p {
+        &:first-child {
+          font-style: italic;
+        }
+      }
+    }
+
+    .star-rating {
+      span {
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    .navigation-buttons {
+      .nav-button {
+        backdrop-filter: blur(10px);
+
+        &:hover {
+          box-shadow: 0 4px 20px rgba($gold, 0.4);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+
+    .pagination-dots {
+      .dot {
+        cursor: pointer;
+
+        &[aria-current="true"] {
+          box-shadow: 0 0 10px rgba($gold, 0.6);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .testimonials-section {
+    .quote-mark-wrapper {
+      .quote-mark {
+        font-size: 6rem;
+      }
+    }
+  }
+}
