@@ -21,7 +21,7 @@ export default function Simulator() {
 
   return (
     <section className="simulator-section bg-gray-600">
-      <div className="container mx-auto px-4 max-w-5xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <Heading title="Simulador" white />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">

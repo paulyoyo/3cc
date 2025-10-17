@@ -13,6 +13,7 @@ module.exports = {
         "desaturated-dark-orange": "#877458",
         "dark-grayish-orange": "#a4988b",
         "vivid-orange": "#FB9B0D",
+        "soft-orange": "#facd89",
       },
     },
   },

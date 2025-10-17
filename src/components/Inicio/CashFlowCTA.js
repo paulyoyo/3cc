@@ -10,7 +10,7 @@ export default function CashFlowCTA() {
 
   return (
     <section className="cashflow-cta-section bg-white">
-      <div className="container mx-auto px-4 max-w-4xl text-center">
+      <div className="container mx-auto px-4 max-w-6xl text-center">
         <Heading
           title="¿Listo para mejorar tu flujo de caja?"
           subtitle="Contáctanos hoy y recibe una propuesta adaptada a tu empresa."

@@ -63,7 +63,7 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <div className="hero__container">
+      <div className="hero__container container mx-auto px-4 max-w-6xl">
         <div className="hero__content">
           <h1 className="hero__title">¡Cobra tus facturas por adelantado!</h1>
           <p className="hero__subtitle">

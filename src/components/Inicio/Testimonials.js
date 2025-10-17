@@ -29,7 +29,7 @@ export default function Testimonials() {
 
   return (
     <section className="testimonials-section bg-gray-600">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="quote-mark-wrapper text-center mb-8">
           <span className="quote-mark text-8xl md:text-9xl font-serif text-white/30">
             66
