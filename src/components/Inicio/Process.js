@@ -34,7 +34,7 @@ export default function Process() {
     <section className="process-section bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 mb-8 lg:mb-0">
             <Heading
               title="Proceso"
               subtitle="Tres pasos sencillos para recibir tu dinero"

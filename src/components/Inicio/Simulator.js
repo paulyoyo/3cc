@@ -30,20 +30,34 @@ export default function Simulator() {
               <label htmlFor="invoiceAmount" className="block text-white text-lg mb-3">
                 Monto de factura
               </label>
-              <div className="relative">
+              <div className="flex gap-4 items-center mb-2">
+                <input
+                  type="range"
+                  id="invoiceAmountSlider"
+                  value={invoiceAmount}
+                  onChange={(e) => setInvoiceAmount(Number(e.target.value))}
+                  min="1000"
+                  max="100000"
+                  step="1000"
+                  className="flex-1"
+                  style={{
+                    accentColor: '#FB9B0D'
+                  }}
+                />
                 <input
                   type="number"
                   id="invoiceAmount"
                   value={invoiceAmount}
                   onChange={(e) => setInvoiceAmount(Number(e.target.value))}
-                  min="0"
+                  min="1000"
+                  max="100000"
                   step="1000"
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-400 bg-white text-gray-900 text-lg focus:outline-none focus:border-gold transition-colors"
+                  className="w-32 px-4 py-3 rounded-lg border-2 border-gray-400 bg-white text-gray-900 text-lg focus:outline-none focus:border-vivid-orange transition-colors"
                 />
-                <span className="block mt-2 text-white text-sm">
-                  S/ {invoiceAmount.toLocaleString()}
-                </span>
               </div>
+              <span className="block text-white text-sm">
+                S/ {invoiceAmount.toLocaleString()}
+              </span>
             </div>
 
             <div className="days-selector">
