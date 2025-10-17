@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Heading from "@ui/Heading";
 import "./Testimonials.scss";
 
 export default function Testimonials() {
@@ -27,7 +28,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="testimonials-section py-16 md:py-24 bg-gray-600">
+    <section className="testimonials-section bg-gray-600">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="quote-mark-wrapper text-center mb-8">
           <span className="quote-mark text-8xl md:text-9xl font-serif text-white/30">
@@ -35,9 +36,7 @@ export default function Testimonials() {
           </span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-12 md:mb-16">
-          Lo que dicen nuestros clientes
-        </h2>
+        <Heading title="Lo que dicen nuestros clientes" centered white />
 
         <div className="testimonial-carousel relative">
           <div className="testimonial-content bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 mb-8">

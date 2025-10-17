@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "@ui/Heading";
 import "./CashFlowCTA.scss";
 
 export default function CashFlowCTA() {
@@ -8,14 +9,13 @@ export default function CashFlowCTA() {
   };
 
   return (
-    <section className="cashflow-cta-section py-16 md:py-24 bg-white">
+    <section className="cashflow-cta-section bg-white">
       <div className="container mx-auto px-4 max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-          ¿Listo para mejorar tu flujo de caja?
-        </h2>
-        <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-          Contáctanos hoy y recibe una propuesta adaptada a tu empresa.
-        </p>
+        <Heading
+          title="¿Listo para mejorar tu flujo de caja?"
+          subtitle="Contáctanos hoy y recibe una propuesta adaptada a tu empresa."
+          centered
+        />
 
         <button
           type="button"

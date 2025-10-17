@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Heading from "@ui/Heading";
 import "./Simulator.scss";
 
 export default function Simulator() {
@@ -19,11 +20,9 @@ export default function Simulator() {
   };
 
   return (
-    <section className="simulator-section py-16 md:py-24 bg-gray-600">
+    <section className="simulator-section bg-gray-600">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12 md:mb-16">
-          Simulador
-        </h2>
+        <Heading title="Simulador" white />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div className="space-y-8">

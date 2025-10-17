@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "@ui/Heading";
 import "./WhyChooseUs.scss";
 
 export default function WhyChooseUs() {
@@ -22,13 +23,11 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="why-choose-us-section py-16 md:py-24 bg-white">
+    <section className="why-choose-us-section bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="content-column space-y-6">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              ¿Por qué elegir 3C Capital?
-            </h2>
+            <Heading title="¿Por qué elegir 3C Capital?" />
             <h3 className="text-xl md:text-2xl font-semibold text-gold mb-6">
               Brindamos asesoría financiera de primer nivel a nuestros clientes
             </h3>

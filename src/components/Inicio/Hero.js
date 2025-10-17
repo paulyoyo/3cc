@@ -90,7 +90,7 @@ export default function Hero() {
                 </CountUp>{" "}
                 millones
               </h3>
-              <p className="hero__stat-label">En facturación cursada</p>
+              <p className="hero__stat-label">En financiamiento otorgado</p>
             </div>
             <div className="hero__stat">
               <h3 className="hero__stat-number">
@@ -110,7 +110,7 @@ export default function Hero() {
                   )}
                 </CountUp>
               </h3>
-              <p className="hero__stat-label">Facturas cursadas</p>
+              <p className="hero__stat-label">Empresarios financiados</p>
             </div>
           </div>
         </div>
@@ -118,8 +118,10 @@ export default function Hero() {
         <div className="hero__form-wrapper">
           <div className="hero__form-card">
             <form onSubmit={handleSubmit(onSubmit)} className="hero__form">
-              <h2 className="hero__form-title">AUMENTE SUS VENTAS</h2>
-              <p className="hero__form-subtitle">
+              <h2 className="text-[28px] lg:text-[36px] my-0">
+                AUMENTE SUS VENTAS
+              </h2>
+              <p className="lg:text-[22px] mt-0 mb-4">
                 Rápido, fácil y sin complicaciones.
               </p>
 

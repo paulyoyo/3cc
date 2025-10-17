@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "@ui/Heading";
 import "./ServicesFactoring.scss";
 
 export default function ServicesFactoring() {
@@ -27,11 +28,9 @@ export default function ServicesFactoring() {
   ];
 
   return (
-    <section className="services-factoring-section py-16 md:py-24 bg-gray-700">
+    <section className="services-factoring-section bg-gray-700">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-12 md:mb-16">
-          Nuestro servicio: Factoring
-        </h2>
+        <Heading title="Nuestro servicio: Factoring" centered white />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (

@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "@ui/Heading";
 import "./Benefits.scss";
 
 export default function Benefits() {
@@ -30,16 +31,13 @@ export default function Benefits() {
   ];
 
   return (
-    <section className="benefits-section py-16 md:py-24 bg-white">
+    <section className="benefits-section bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Beneficios
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600">
-            Lo que obtendrás con nuestro factoring
-          </p>
-        </div>
+        <Heading
+          title="Beneficios"
+          subtitle="Lo que obtendrás con nuestro factoring"
+          centered
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {benefits.map((benefit) => (

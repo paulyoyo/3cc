@@ -2,7 +2,7 @@
 @font-face {
   font-family: 'Century Gothic';
   src: url('../assets/fonts/centurygothic.woff2') format('woff2'),
-       url('../assets/fonts/centurygothic.woff') format('woff');
+    url('../assets/fonts/centurygothic.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,16 +11,11 @@
 @font-face {
   font-family: 'Century Gothic';
   src: url('../assets/fonts/centurygothic_bold.woff2') format('woff2'),
-       url('../assets/fonts/centurygothic_bold.woff') format('woff');
+    url('../assets/fonts/centurygothic_bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-
-// Tailwind Directives
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 // Base Styles
 @layer base {
@@ -28,12 +23,55 @@
     font-family: 'Century Gothic', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Century Gothic', sans-serif;
     font-weight: 700;
   }
 
-  p, a, span, div, li, td, th, label, input, textarea, button {
+  h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 42px;
+    line-height: 1.2;
+
+    @media (min-width: 768px) {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 72px;
+    }
+  }
+
+  section {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    @media (min-width: 768px) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  p,
+  a,
+  span,
+  div,
+  li,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  button {
     font-family: 'Century Gothic', sans-serif;
   }
 
