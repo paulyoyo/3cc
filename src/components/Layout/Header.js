@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import logo from "@assets/images/logo-3cc.png";
 import useSticky from "../../hooks/useSticky";
 import { OffCanvas, OffCanvasHeader, OffCanvasBody } from "../OffCanvas";
 import "./Header.scss";
@@ -29,14 +29,7 @@ export default function Header() {
           <div className="header__container">
             {/* Logo */}
             <div className="header__logo">
-              <Link to="/" aria-label="3C Capital Home">
-                <StaticImage
-                  src="../../assets/images/logo-3cc.png"
-                  alt="3C Capital"
-                  placeholder="blurred"
-                  height={40}
-                />
-              </Link>
+              <img src={logo} alt="3C Capital Logo" className="h-8 md:h-12" />
             </div>
 
             {/* Desktop Navigation */}
@@ -85,12 +78,7 @@ export default function Header() {
       <OffCanvas isOpen={offCanvasOpen} onClose={toggleOffCanvas}>
         <OffCanvasHeader onClose={toggleOffCanvas}>
           <Link to="/" onClick={toggleOffCanvas}>
-            <StaticImage
-              src="../../assets/images/logo-3cc.png"
-              alt="3C Capital"
-              placeholder="blurred"
-              height={35}
-            />
+            <img src={logo} alt="3C Capital Logo" className="h-8" />
           </Link>
         </OffCanvasHeader>
         <OffCanvasBody>

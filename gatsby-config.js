@@ -2,6 +2,10 @@ module.exports = {
   siteMetadata: {
     title: "3C Capital",
     description: "Factoring y Oportunidades de Rentabilidad",
+    emails: [
+      "negocios1@3ccapital.pe",
+      "negocios2@3ccapital.pe",
+    ],
   },
   plugins: [
     {

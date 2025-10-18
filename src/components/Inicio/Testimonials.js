@@ -1,30 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import Heading from "@ui/Heading";
+import Swiper, { SwiperSlide } from "../ui/Swiper";
 import "./Testimonials.scss";
 
 export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie urna sit amet mattis mollis. Quisque vitae magna aliquet, in erom vel velit. Nam molestie urna sit amet maximus laoreet ultricies sit ac turpis id.",
-      author: "Espejo Enerprint",
-      rating: 5,
+      text: "Excelente servicio de factoring. Nos ayudaron a mejorar nuestro flujo de caja de manera rápida y eficiente. El equipo de 3C Capital es muy profesional y comprometido.",
+      author: "María González",
+      company: "Distribuidora Lima SAC",
     },
-    // Additional testimonials can be added here
+    {
+      id: 2,
+      text: "Gracias a 3C Capital pudimos acceder a capital de trabajo inmediato. Su proceso es ágil y transparente. Altamente recomendados para empresas que necesitan liquidez.",
+      author: "Carlos Rodríguez",
+      company: "Textiles del Norte EIRL",
+    },
+    {
+      id: 3,
+      text: "La asesoría financiera que recibimos fue fundamental para el crecimiento de nuestra empresa. 3C Capital entiende las necesidades del mercado peruano.",
+      author: "Ana Martínez",
+      company: "Comercial San Miguel SRL",
+    },
+    {
+      id: 4,
+      text: "Llevamos trabajando con 3C Capital más de 2 años. Su servicio de factoring nos ha permitido mantener operaciones constantes sin preocuparnos por la cobranza.",
+      author: "Jorge Sánchez",
+      company: "Importaciones del Sur SAC",
+    },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1,
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1,
-    );
+  const swiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: true,
+    autoplayDelay: 5000,
+    navigation: true,
+    pagination: true,
   };
 
   return (
@@ -59,51 +73,24 @@ export default function Testimonials() {
 
         <Heading title="Lo que dicen nuestros clientes" centered white />
 
-        <div className="testimonial-carousel relative">
-          <div className="testimonial-content rounded-2xl p-8 md:p-12 mb-8">
-            <p className="text-lg md:text-xl text-white leading-relaxed mb-6 text-center">
-              {testimonials[currentIndex].text}
-            </p>
-            <p className="text-base md:text-lg text-gold font-semibold text-center mb-4">
-              {testimonials[currentIndex].author}
-            </p>
-          </div>
-
-          <div className="navigation-buttons flex justify-center gap-4 mb-6">
-            <button
-              type="button"
-              onClick={handlePrevious}
-              aria-label="Previous testimonial"
-              className="nav-button w-12 h-12 rounded-full bg-white/20 hover:bg-gold text-white text-2xl flex items-center justify-center transition-all hover:scale-110"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              onClick={handleNext}
-              aria-label="Next testimonial"
-              className="nav-button w-12 h-12 rounded-full bg-white/20 hover:bg-gold text-white text-2xl flex items-center justify-center transition-all hover:scale-110"
-            >
-              ›
-            </button>
-          </div>
-
-          <div className="pagination-dots flex justify-center gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setCurrentIndex(index)}
-                aria-label={`Go to testimonial ${index + 1}`}
-                aria-current={currentIndex === index}
-                className={`dot w-3 h-3 rounded-full transition-all ${
-                  currentIndex === index
-                    ? "bg-gold w-8"
-                    : "bg-white/40 hover:bg-white/60"
-                }`}
-              />
+        <div className="testimonial-carousel">
+          <Swiper options={swiperOptions} className="testimonials-swiper">
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id}>
+                <div className="testimonial-content rounded-2xl p-8 md:p-12">
+                  <p className="text-lg md:text-xl text-white leading-relaxed mb-6 text-center">
+                    {testimonial.text}
+                  </p>
+                  <p className="text-base md:text-lg text-gold font-semibold text-center mb-2">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-sm md:text-base text-white/70 text-center">
+                    {testimonial.company}
+                  </p>
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </section>

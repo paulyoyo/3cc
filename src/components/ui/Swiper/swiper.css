@@ -1,0 +1,130 @@
+/* Swiper Core Styles */
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+.swiper-autoheight .swiper-slide {
+  height: auto;
+}
+
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+  transition-property: transform, height;
+}
+
+/* Navigation Buttons */
+.swiper-wrap {
+  position: relative;
+}
+
+.swiper-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.swiper-btn:hover {
+  background: #D4AF37;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.swiper-btn-prev {
+  left: 20px;
+}
+
+.swiper-btn-next {
+  right: 20px;
+}
+
+.swiper-btn i {
+  font-size: 20px;
+}
+
+/* Pagination Dots */
+.swiper-pagination {
+  position: relative;
+  text-align: center;
+  transition: 0.3s opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  margin-top: 30px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.swiper-pagination-bullet-active {
+  width: 30px;
+  border-radius: 5px;
+  background: #D4AF37;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .swiper-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .swiper-btn i {
+    font-size: 16px;
+  }
+
+  .swiper-btn-prev {
+    left: 10px;
+  }
+
+  .swiper-btn-next {
+    right: 10px;
+  }
+}
