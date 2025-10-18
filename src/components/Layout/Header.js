@@ -15,7 +15,7 @@ export default function Header() {
 
   const navLinks = [
     { to: "/factoring", label: "Factoring" },
-    { to: "/sobre-nosotros", label: "Sobre mí" },
+    { to: "/sobre-nosotros", label: "Sobre nosotros" },
     { to: "/blog", label: "Blog" },
   ];
 
@@ -102,7 +102,7 @@ export default function Header() {
                   className="offcanvas__nav-cta"
                   onClick={toggleOffCanvas}
                 >
-                  Contactar
+                  Contacto
                 </Link>
               </li>
             </ul>

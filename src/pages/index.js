@@ -7,7 +7,7 @@ import Benefits from "@components/Inicio/Benefits";
 import WhyChooseUs from "@components/Inicio/WhyChooseUs";
 import Testimonials from "@components/Inicio/Testimonials";
 import ServicesFactoring from "@components/Inicio/ServicesFactoring";
-import CashFlowCTA from "@components/Inicio/CashFlowCTA";
+import LatestPosts from "@components/Inicio/LatestPosts";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <WhyChooseUs />
       <Testimonials />
       <ServicesFactoring />
-      <CashFlowCTA />
+      <LatestPosts />
     </Layout>
   );
 }
