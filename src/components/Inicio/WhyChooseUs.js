@@ -1,34 +1,86 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import Heading from "@ui/Heading";
 import "./WhyChooseUs.scss";
 
 export default function WhyChooseUs() {
-  const features = [
+  const brands = [
     {
-      id: "feature-1",
-      iconType: "diamond",
+      id: "brand-1",
+      image: "brand-3c.png",
+      alt: "3C Capital",
     },
     {
-      id: "feature-2",
-      iconType: "circle",
+      id: "brand-2",
+      image: "brand-cavali.png",
+      alt: "Cavali",
     },
     {
-      id: "feature-3",
-      iconType: "figma",
+      id: "brand-3",
+      image: "brand-f.png",
+      alt: "F",
     },
     {
-      id: "feature-4",
-      iconType: "cube",
+      id: "brand-4",
+      image: "brand-sbs.png",
+      alt: "SBS",
     },
   ];
 
+  const getBrandImage = (imageName) => {
+    switch (imageName) {
+      case "brand-3c.png":
+        return (
+          <StaticImage
+            src="../../assets/images/brand-3c.png"
+            alt="3C Capital"
+            width={120}
+            height={120}
+            objectFit="contain"
+          />
+        );
+      case "brand-cavali.png":
+        return (
+          <StaticImage
+            src="../../assets/images/brand-cavali.png"
+            alt="Cavali"
+            width={120}
+            height={120}
+            objectFit="contain"
+          />
+        );
+      case "brand-f.png":
+        return (
+          <StaticImage
+            src="../../assets/images/brand-f.png"
+            alt="F"
+            width={120}
+            height={120}
+            objectFit="contain"
+          />
+        );
+      case "brand-sbs.png":
+        return (
+          <StaticImage
+            src="../../assets/images/brand-sbs.png"
+            alt="SBS"
+            width={120}
+            height={120}
+            objectFit="contain"
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <section className="why-choose-us-section bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="content-column space-y-6">
+      <div className="w-full">
+        <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-12 lg:gap-16 px-4 lg:px-8">
+          <div className="content-column space-y-6 lg:max-w-[50%]">
             <Heading title="¿Por qué elegir 3C Capital?" />
-            <h3 className="text-xl md:text-2xl font-semibold text-gold mb-6">
+            <h3 className="text-xl md:text-2xl font-semibold text-vivid-orange mb-6">
               Brindamos asesoría financiera de primer nivel a nuestros clientes
             </h3>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -38,8 +90,8 @@ export default function WhyChooseUs() {
               proporcionar respuestas rápidas y confiables a nuestros clientes.
             </p>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-              Nos posiciona actualmente en el top 3 entre empresas de factoring en
-              el Perú. Nuestra posición es producto de brindar un servicio
+              Nos posiciona actualmente en el top 3 entre empresas de factoring
+              en el Perú. Nuestra posición es producto de brindar un servicio
               diferenciado a nuestros clientes que en estos 7 años de
               funcionamiento nos ha permitido trabajar con múltiples empresas de
               diversos rubros.
@@ -50,19 +102,14 @@ export default function WhyChooseUs() {
             </p>
           </div>
 
-          <div className="features-grid grid grid-cols-2 gap-6">
-            {features.map((feature) => (
+          <div className="features-grid grid grid-cols-2 gap-6 lg:max-w-[50%]">
+            {brands.map((brand) => (
               <div
-                key={feature.id}
-                className="feature-icon-box w-full aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center hover:shadow-xl transition-all hover:scale-105"
+                key={brand.id}
+                className="brand-circle w-full aspect-square rounded-full flex items-center justify-center hover:shadow-xl transition-all hover:scale-105"
+                style={{ backgroundColor: "#f5f5f5" }}
               >
-                {/* Icon placeholder - to be replaced with actual icon components or SVGs */}
-                <span className="text-6xl opacity-50" data-icon={feature.iconType}>
-                  {feature.iconType === "diamond" && "💎"}
-                  {feature.iconType === "circle" && "⭕"}
-                  {feature.iconType === "figma" && "🎨"}
-                  {feature.iconType === "cube" && "🧊"}
-                </span>
+                {getBrandImage(brand.image)}
               </div>
             ))}
           </div>
