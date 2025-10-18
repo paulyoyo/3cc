@@ -1,0 +1,8 @@
+.footer-section {
+  position: relative;
+
+  > div {
+    position: relative;
+    z-index: 1;
+  }
+}
