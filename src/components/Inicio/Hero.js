@@ -118,7 +118,7 @@ export default function Hero() {
         <div className="hero__form-wrapper">
           <div className="hero__form-card">
             <form onSubmit={handleSubmit(onSubmit)} className="hero__form">
-              <h2 className="text-[28px] lg:text-[36px] my-0">
+              <h2 className="title-animation text-[28px] lg:text-[36px] my-0">
                 AUMENTE SUS VENTAS
               </h2>
               <p className="lg:text-[22px] mt-0 mb-4">

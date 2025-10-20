@@ -35,11 +35,11 @@ export default function ServicesFactoring() {
       <div className="container mx-auto px-4 max-w-6xl">
         <Heading title="Nuestro servicio: Factoring" white />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 lg:mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 lg:mt-12 fade-wrapper">
           {services.map((service) => (
             <div
               key={service.id}
-              className="service-card rounded-2xl p-8 text-white transition-all hover:shadow-2xl hover:-translate-y-2 group relative"
+              className="service-card fade-top rounded-2xl p-8 text-white transition-all hover:shadow-2xl hover:-translate-y-2 group relative"
               style={{
                 border: "1px solid white",
                 background: "transparent",

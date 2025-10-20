@@ -23,3 +23,17 @@ export default function Home() {
     </Layout>
   );
 }
+
+export function Head() {
+  return (
+    <>
+      <html lang="es" className="light scroll-smooth" dir="ltr" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>3C Capital - Factoring y Oportunidades de Rentabilidad</title>
+      <meta
+        name="description"
+        content="3C Capital es una empresa de factoring con amplia experiencia. Adelanta el cobro de tus facturas y mejora tu flujo de caja sin aumentar tu endeudamiento bancario."
+      />
+    </>
+  );
+}

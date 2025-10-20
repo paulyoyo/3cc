@@ -6,7 +6,7 @@ const Heading = ({ title, subtitle, centered, white, className = "" }) => {
 
   return (
     <div className={`${alignmentClass} ${className}`}>
-      {title && <h2 className={colorClass}>{title}</h2>}
+      {title && <h2 className={`title-animation ${colorClass}`}>{title}</h2>}
       {subtitle && <p className={`text-[24px] my-2 ${colorClass}`}>{subtitle}</p>}
     </div>
   );

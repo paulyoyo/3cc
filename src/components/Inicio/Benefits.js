@@ -76,7 +76,7 @@ export default function Benefits() {
 
   return (
     <section className="benefits-section bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl fade-wrapper">
         <div className="mb-8">
           <Heading
             title="Beneficios"
@@ -89,16 +89,16 @@ export default function Benefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.id}
-              className="benefit-card bg-vivid-orange rounded-2xl p-8 text-center text-white transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center justify-center"
-              style={{ height: '400px' }}
+              className="benefit-card fade-top bg-vivid-orange rounded-2xl p-8 text-center text-white transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center justify-center"
+              style={{ height: "400px" }}
             >
               <div className="icon-wrapper mb-6 flex justify-center">
                 {getIconImage(benefit.icon)}
               </div>
-              <h3 className="font-bold mb-3" style={{ fontSize: '36px' }}>
+              <h3 className="font-bold mb-3" style={{ fontSize: "36px" }}>
                 {benefit.title}
               </h3>
-              <p className="text-white/90" style={{ fontSize: '24px' }}>
+              <p className="text-white/90" style={{ fontSize: "24px" }}>
                 {benefit.description}
               </p>
             </div>

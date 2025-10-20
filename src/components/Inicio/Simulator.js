@@ -38,7 +38,7 @@ export default function Simulator() {
         <Heading title="Simulador" white />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div className="space-y-8">
+          <div className="space-y-8 appear-down">
             <div className="input-group">
               <label
                 htmlFor="invoiceAmount"
@@ -106,7 +106,7 @@ export default function Simulator() {
             </div>
           </div>
 
-          <div className="result-card bg-white rounded-2xl p-8 text-center shadow-xl">
+          <div className="result-card appear-down bg-white rounded-2xl p-8 text-center shadow-xl">
             <p className="text-lg md:text-xl text-gray-600 mb-4">Recibe hoy</p>
             <div className="result-amount text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               S/{" "}

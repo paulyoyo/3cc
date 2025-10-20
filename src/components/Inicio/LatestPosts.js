@@ -60,7 +60,7 @@ export default function LatestPosts() {
             return (
               <article
                 key={uid}
-                className="blog-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="blog-card appear-down bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
                 {data.foto?.gatsbyImageData && (
                   <Link to={`/noticias/${uid}`}>

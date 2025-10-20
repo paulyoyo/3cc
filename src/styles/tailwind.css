@@ -6,3 +6,23 @@
   --color-vivid-orange: #fb9b0d;
   --color-soft-orange: #facd89;
 }
+
+/* Global section padding */
+section {
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-block-start: 2rem;
+    padding-block-end: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-block-start: 3rem;
+    padding-block-end: 3rem;
+  }
+}
