@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
-import HeroForm from "../forms/HeroForm";
+import HeroForm from "@components/forms/HeroForm";
 import "./Hero.scss";
 
 export default function Hero() {

@@ -1,6 +1,6 @@
 import React from "react";
 import Heading from "@ui/Heading";
-import Swiper, { SwiperSlide } from "../ui/Swiper";
+import Swiper, { SwiperSlide } from "@ui/Swiper";
 import "./Testimonials.scss";
 
 export default function Testimonials() {

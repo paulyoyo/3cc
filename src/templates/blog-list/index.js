@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import Layout from "../../components/Layout/Layout";
+import Layout from "@layout/Layout";
 import Heading from "@ui/Heading";
 import "./blog-list.scss";
 

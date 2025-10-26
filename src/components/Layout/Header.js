@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import logo from "@assets/images/logo-3cc.png";
-import useSticky from "../../hooks/useSticky";
-import { OffCanvas, OffCanvasHeader, OffCanvasBody } from "../OffCanvas";
+import logo from "@images/logo-3cc.png";
+import useSticky from "@hooks/useSticky";
+import { OffCanvas, OffCanvasHeader, OffCanvasBody } from "@components/OffCanvas";
 import "./Header.scss";
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
   };
 
   const navLinks = [
-    { to: "/factoring", label: "Factoring" },
+    { to: "/#factoring", label: "Factoring" },
     { to: "/sobre-nosotros", label: "Sobre nosotros" },
     { to: "/noticias", label: "Blog" },
   ];

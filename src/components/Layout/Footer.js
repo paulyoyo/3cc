@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import bgFooter from "../../assets/images/bg-footer.jpg";
-import logo from "../../assets/images/logo-3cc-blanco.png";
+import bgFooter from "@images/bg-footer.jpg";
+import logo from "@images/logo-3cc-blanco.png";
 import "./Footer.scss";
 
 export default function Footer() {

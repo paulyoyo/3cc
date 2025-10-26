@@ -1,9 +1,9 @@
 import React from "react";
 import Heading from "@ui/Heading";
 import Swiper, { SwiperSlide } from "@ui/Swiper";
-import IconFactoring from "../../assets/images/icon-factoring.svg";
-import IconVentajas from "../../assets/images/icon-ventajas.svg";
-import IconRequisitos from "../../assets/images/icon-requisitos.svg";
+import IconFactoring from "@images/icon-factoring.svg";
+import IconVentajas from "@images/icon-ventajas.svg";
+import IconRequisitos from "@images/icon-requisitos.svg";
 import "./ServicesFactoring.scss";
 
 export default function ServicesFactoring() {
@@ -48,15 +48,12 @@ export default function ServicesFactoring() {
   };
 
   return (
-    <section className="services-factoring-section bg-gray-700">
+    <section id="factoring" className="services-factoring-section bg-gray-700">
       <div className="container mx-auto px-4 max-w-6xl">
         <Heading title="Nuestro servicio: Factoring" white />
 
         <div className="mt-8 lg:mt-12">
-          <Swiper
-            options={swiperOptions}
-            className="services-swiper"
-          >
+          <Swiper options={swiperOptions} className="services-swiper">
             {services.map((service) => (
               <SwiperSlide key={service.id}>
                 <div

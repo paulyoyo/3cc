@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Heading from "@ui/Heading";
-import HeroForm from "../forms/HeroForm";
+import HeroForm from "@components/forms/HeroForm";
 import "./Simulator.scss";
 
 export default function Simulator() {

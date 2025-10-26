@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classnames from "clsx";
 import { Navigation, Autoplay, Pagination, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import useMount from "../../../hooks/useMount";
+import useMount from "@hooks/useMount";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
