@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
 
   return (
     <section className="why-choose-us-section bg-white">
-      <div className="w-full">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-12 lg:gap-16 px-4 lg:px-8">
           <div className="content-column space-y-6 lg:max-w-[50%]">
             <Heading title="¿Por qué elegir 3C Capital?" />

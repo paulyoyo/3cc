@@ -16,7 +16,7 @@ export default function Header() {
   const navLinks = [
     { to: "/factoring", label: "Factoring" },
     { to: "/sobre-nosotros", label: "Sobre nosotros" },
-    { to: "/blog", label: "Blog" },
+    { to: "/noticias", label: "Blog" },
   ];
 
   return (

@@ -2,11 +2,17 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Heading from "@ui/Heading";
+import IconEnviaFactura from "@images/icon_envia_factura.svg";
+import IconEvaluacion from "@images/icon_evaluacion.svg";
+import IconRecibeDinero from "@images/icon_recibe_dinero.svg";
 import "./Process.scss";
 
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function Process() {
-  const contentRef = useRef(null);
-  const linesRef = useRef([]);
+  const stepsRef = useRef([]);
 
   const steps = [
     {
@@ -14,164 +20,91 @@ export default function Process() {
       title: "Envía la factura",
       description:
         "Una vez aprobada la operación, recibes un anticipo (un porcentaje del total) en días o incluso el mismo día; la factoring asume la cobranza hasta el vencimiento.",
+      icon: IconEnviaFactura,
     },
     {
       id: 2,
       title: "Evaluación",
       description:
-        "Realizamos un análisis crediticio integral del deudor: historial de pagos, solvencia, plazo y condiciones del documento. Con base en este estudio, definimos el porcentaje de anticipo que te corresponde, las comisiones aplicables y los plazos.",
+        "Realizamos un análisis crediticio integral del deudor: historial de pagos, solvencia, plazo y condiciones del documento.",
+      icon: IconEvaluacion,
     },
     {
       id: 3,
       title: "Recibe tu dinero",
       description:
-        "Tras aprobarse la operación, te entregamos un anticipo del monto convenido en un corto plazo, usualmente en días hábiles. Mientras tanto, gestionamos la cobranza del documento hasta su vencimiento, para que tú puedas concentrarte en tu negocio.",
+        "Te entregamos un anticipo del monto convenido en un corto plazo. Mientras gestionamos la cobranza del documento hasta su vencimiento, para que tú puedas concentrarte en tu negocio.",
+      icon: IconRecibeDinero,
     },
   ];
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const stepElements = stepsRef.current;
 
-    const ele = contentRef.current;
-
-    if (typeof window !== "undefined" && window.innerWidth >= 768 && ele) {
-      const processSteps = gsap.utils.toArray(".process-step");
-      const lines = gsap.utils.toArray(".process-line");
-
-      // Set initial state - only steps and lines hidden (heading stays visible)
-      gsap.set(processSteps, { opacity: 0, x: 200 });
-      gsap.set(lines, { scaleX: 0, transformOrigin: "left" });
-
-      // Create timeline for the animation with scroll-blocking
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ele,
-          pin: true, // Locks section in place during animation
-          start: "center center", // Start when section center hits viewport center
-          end: "+=100", // Minimal scroll distance
-          scrub: 0.5, // Faster scrub response
-          invalidateOnRefresh: true,
-          markers: false,
-          anticipatePin: 1, // Prevents jump when pinning starts
-          pinSpacing: true, // Create space to prevent content overlap
-        },
-      });
-
-      // Animate each step from right to original position
-      processSteps.forEach((step, index) => {
-        tl.to(
-          step,
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.6,
-            ease: "power2.out",
+    if (stepElements.length > 0) {
+      gsap.fromTo(
+        stepElements,
+        { autoAlpha: 0, y: 20 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: stepElements[0]?.parentNode,
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
-          index * 0.4, // Faster stagger to match shorter scroll distance
-        );
-
-        // Animate corresponding line
-        if (lines[index]) {
-          tl.to(
-            lines[index],
-            {
-              scaleX: 1,
-              duration: 0.4,
-              ease: "power2.out",
-            },
-            index * 0.4 + 0.2, // Lines appear slightly after their step
-          );
-        }
-      });
-
-      return () => {
-        tl.kill();
-      };
+        },
+      );
     }
   }, []);
 
   return (
-    <section className="process-section bg-white pt-0">
+    <section className="process-section bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-12">
-          <div className="lg:col-span-12">
-            {/* Mobile: Vertical lines with steps */}
-            <div className="flex flex-col md:hidden">
-              <div className="lg:col-span-3 mb-8 lg:mb-0">
-                <Heading
-                  title="Proceso"
-                  subtitle="Tres pasos sencillos para recibir tu dinero"
-                />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Heading Column */}
+          <div className="lg:col-span-4">
+            <Heading
+              title="Proceso"
+              subtitle="Tres pasos sencillos para recibir tu dinero"
+            />
+          </div>
 
-              {steps.map((step) => (
-                <div key={step.id} className="flex">
-                  <div
-                    style={{
-                      width: "5px",
-                      minHeight: "60px",
-                      backgroundColor: "#FB9B0D",
-                    }}
-                  />
-                  <div className="flex-1">
-                    <h3 className="text-xl font-normal text-gray-900 mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-base text-gray-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Desktop: Horizontal lines */}
-            <div
-              className="hidden md:grid mb-4"
-              style={{
-                gridTemplateColumns: "1.5fr 1fr 1fr 1fr",
-              }}
-            >
-              {/* Empty space for heading column */}
-              <div></div>
-              {/* Lines for the 3 steps */}
-              {steps.map((step, index) => (
+          {/* Steps Column */}
+          <div className="lg:col-span-8">
+            <div className="process-steps">
+              {steps.map((step, idx) => (
                 <div
+                  className="process-step"
                   key={step.id}
-                  ref={(el) => (linesRef.current[index] = el)}
-                  className="process-line"
-                  style={{
-                    height: "5px",
-                    backgroundColor: "#FB9B0D",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Desktop: Grid layout with GSAP animation - Heading + Steps inline */}
-            <div
-              className="hidden md:grid gap-4 lg:gap-8"
-              style={{
-                gridTemplateColumns: "1.5fr 1fr 1fr 1fr",
-              }}
-            >
-              {/* Heading as first column */}
-              <div className="process-heading">
-                <Heading
-                  title="Proceso"
-                  subtitle="Tres pasos sencillos para recibir tu dinero"
-                />
-              </div>
-
-              {/* Steps */}
-              {steps.map((step) => (
-                <div key={step.id} className="process-step">
-                  <h3 className="text-xl md:text-2xl text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                    {step.description}
-                  </p>
+                  ref={(el) => (stepsRef.current[idx] = el)}
+                  style={{ opacity: 0 }}
+                >
+                  <div className="step-icon">
+                    <img src={step.icon} alt={step.title} />
+                  </div>
+                  <div className="step-content">
+                    <h3 className="step-title">{step.title}</h3>
+                    <p className="step-description">{step.description}</p>
+                  </div>
+                  {idx < steps.length - 1 && (
+                    <div className="step-dash">
+                      <svg width="60" height="8" viewBox="0 0 60 8" fill="none">
+                        <line
+                          x1="4"
+                          y1="4"
+                          x2="56"
+                          y2="4"
+                          stroke="#e5e7eb"
+                          strokeWidth="2"
+                          strokeDasharray="6 6"
+                        />
+                      </svg>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

@@ -201,6 +201,14 @@ $large: 1200px;
         border-color: #e74c3c;
       }
     }
+
+    &--disabled {
+      background: #e9ecef;
+      color: #495057;
+      cursor: not-allowed;
+      border-color: #ced4da;
+      font-weight: 500;
+    }
   }
 
   &__form-error {

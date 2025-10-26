@@ -1,53 +1,12 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
-import { useForm } from "react-hook-form";
+import HeroForm from "../forms/HeroForm";
 import "./Hero.scss";
 
 export default function Hero() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm();
-
   const [focusStat1, setFocusStat1] = useState(false);
   const [focusStat2, setFocusStat2] = useState(false);
-  const [serverState, setServerState] = useState({
-    submitting: false,
-    status: null,
-  });
-
-  const onSubmit = async (data) => {
-    setServerState({ submitting: true, status: null });
-
-    try {
-      // TODO: Replace with actual API endpoint
-      console.log("Form data:", data);
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setServerState({
-        submitting: false,
-        status: {
-          ok: true,
-          msg: "¡Gracias! Nos pondremos en contacto pronto.",
-        },
-      });
-
-      reset();
-    } catch (error) {
-      setServerState({
-        submitting: false,
-        status: {
-          ok: false,
-          msg: "Hubo un error. Por favor intenta de nuevo.",
-        },
-      });
-    }
-  };
 
   const visibilityChangeHandler1 = (isVisible) => {
     if (isVisible && !focusStat1) {
@@ -115,119 +74,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero__form-wrapper">
-          <div className="hero__form-card">
-            <form onSubmit={handleSubmit(onSubmit)} className="hero__form">
-              <h2 className="title-animation text-[28px] lg:text-[36px] my-0">
-                AUMENTE SUS VENTAS
-              </h2>
-              <p className="lg:text-[22px] mt-0 mb-4">
-                Rápido, fácil y sin complicaciones.
-              </p>
-
-              <div className="hero__form-group">
-                <input
-                  type="text"
-                  placeholder="Nombre"
-                  className={`hero__form-input ${errors.nombre ? "error" : ""}`}
-                  {...register("nombre", {
-                    required: "El nombre es requerido",
-                    minLength: {
-                      value: 2,
-                      message: "El nombre debe tener al menos 2 caracteres",
-                    },
-                  })}
-                />
-                {errors.nombre && (
-                  <span className="hero__form-error">
-                    {errors.nombre.message}
-                  </span>
-                )}
-              </div>
-
-              <div className="hero__form-group">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className={`hero__form-input ${errors.email ? "error" : ""}`}
-                  {...register("email", {
-                    required: "El email es requerido",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                      message: "Email inválido",
-                    },
-                  })}
-                />
-                {errors.email && (
-                  <span className="hero__form-error">
-                    {errors.email.message}
-                  </span>
-                )}
-              </div>
-
-              <div className="hero__form-group">
-                <input
-                  type="tel"
-                  placeholder="Teléfono"
-                  className={`hero__form-input ${errors.telefono ? "error" : ""}`}
-                  {...register("telefono", {
-                    required: "El teléfono es requerido",
-                    pattern: {
-                      value: /^[0-9]{9,15}$/,
-                      message: "Teléfono inválido (9-15 dígitos)",
-                    },
-                  })}
-                />
-                {errors.telefono && (
-                  <span className="hero__form-error">
-                    {errors.telefono.message}
-                  </span>
-                )}
-              </div>
-
-              <div className="hero__form-group">
-                <input
-                  type="text"
-                  placeholder="Empresa"
-                  className={`hero__form-input ${errors.empresa ? "error" : ""}`}
-                  {...register("empresa", {
-                    required: "El nombre de la empresa es requerido",
-                    minLength: {
-                      value: 2,
-                      message:
-                        "El nombre de la empresa debe tener al menos 2 caracteres",
-                    },
-                  })}
-                />
-                {errors.empresa && (
-                  <span className="hero__form-error">
-                    {errors.empresa.message}
-                  </span>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                className="hero__form-button"
-                disabled={isSubmitting || serverState.submitting}
-              >
-                {isSubmitting || serverState.submitting
-                  ? "Enviando..."
-                  : "Solicitar"}
-              </button>
-
-              {serverState.status && (
-                <div
-                  className={`hero__form-message ${
-                    serverState.status.ok ? "success" : "error"
-                  }`}
-                >
-                  {serverState.status.msg}
-                </div>
-              )}
-            </form>
-          </div>
-        </div>
+        <HeroForm />
       </div>
     </section>
   );

@@ -90,7 +90,7 @@ export default function Benefits() {
             <div
               key={benefit.id}
               className="benefit-card fade-top bg-vivid-orange rounded-2xl p-8 text-center text-white transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center justify-center"
-              style={{ height: "400px" }}
+              style={{ height: "320px" }}
             >
               <div className="icon-wrapper mb-6 flex justify-center">
                 {getIconImage(benefit.icon)}

@@ -29,6 +29,14 @@ $gray-dark: #666666;
 
   .result-card {
     animation: fadeInUp 0.6s ease;
+    position: relative;
+    overflow: hidden;
+    will-change: height;
+
+    .result-content,
+    .form-content {
+      width: 100%;
+    }
 
     .result-amount {
       background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
@@ -42,11 +50,44 @@ $gray-dark: #666666;
         box-shadow: 0 10px 30px rgba($gold, 0.4);
       }
     }
+
+    .hero__form-wrapper {
+      margin: 0;
+    }
+
+    .hero__form-card {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      max-width: none;
+    }
   }
 
   .progress-bar-container {
     margin-top: 1rem;
   }
+
+  .back-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(251, 155, 13, 0.5);
+      transform: translateX(-4px);
+      box-shadow: 0 4px 12px rgba(251, 155, 13, 0.2);
+    }
+
+    &:active {
+      transform: translateX(-2px);
+    }
+  }
+
 }
 
 @keyframes fadeInUp {

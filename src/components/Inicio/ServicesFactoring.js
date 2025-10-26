@@ -1,5 +1,6 @@
 import React from "react";
 import Heading from "@ui/Heading";
+import Swiper, { SwiperSlide } from "@ui/Swiper";
 import IconFactoring from "../../assets/images/icon-factoring.svg";
 import IconVentajas from "../../assets/images/icon-ventajas.svg";
 import IconRequisitos from "../../assets/images/icon-requisitos.svg";
@@ -30,43 +31,65 @@ export default function ServicesFactoring() {
     },
   ];
 
+  const swiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: true,
+    autoplayDelay: 5000,
+    pagination: true,
+    navigation: false,
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+  };
+
   return (
     <section className="services-factoring-section bg-gray-700">
       <div className="container mx-auto px-4 max-w-6xl">
         <Heading title="Nuestro servicio: Factoring" white />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 lg:mt-12 fade-wrapper">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="service-card fade-top rounded-2xl p-8 text-white transition-all hover:shadow-2xl hover:-translate-y-2 group relative"
-              style={{
-                border: "1px solid white",
-                background: "transparent",
-              }}
-            >
-              <div className="icon-wrapper mb-6 flex justify-start relative z-10">
-                <img
-                  src={service.icon}
-                  alt={service.title}
-                  className="w-28 h-28"
-                />
-              </div>
-              <h3 className="text-xl md:text-2xl font-normal mb-4 relative z-10">
-                {service.title}
-              </h3>
-              <p className="text-base text-white/90 leading-relaxed relative z-10">
-                {service.description}
-              </p>
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity z-0"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #877458 0%, #a4988b 100%)",
-                }}
-              />
-            </div>
-          ))}
+        <div className="mt-8 lg:mt-12">
+          <Swiper
+            options={swiperOptions}
+            className="services-swiper"
+          >
+            {services.map((service) => (
+              <SwiperSlide key={service.id}>
+                <div
+                  className="service-card rounded-2xl p-8 text-white transition-all hover:shadow-2xl hover:-translate-y-2 group relative"
+                  style={{
+                    border: "1px solid white",
+                    background: "transparent",
+                  }}
+                >
+                  <div className="icon-wrapper mb-6 flex justify-start relative z-10">
+                    <img
+                      src={service.icon}
+                      alt={service.title}
+                      className="w-28 h-28"
+                    />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-normal mb-4 relative z-10">
+                    {service.title}
+                  </h3>
+                  <p className="text-base text-white/90 leading-relaxed relative z-10">
+                    {service.description}
+                  </p>
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity z-0"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #877458 0%, #a4988b 100%)",
+                    }}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>

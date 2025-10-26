@@ -3,68 +3,165 @@
 $gold: #C4A574;
 $gold-dark: #A68A5F;
 $gold-light: #D4B584;
+$orange: #FB9B0D;
 
 .process-section {
+  padding: 4rem 0 5rem 0;
   position: relative;
-  overflow-x: clip; // Prevents horizontal scrollbars but allows animation
-  overflow-y: visible;
+
+  // Decorative horizontal bar at bottom of section
+  @media (min-width: 768px) {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      max-width: 500px;
+      height: 4px;
+      background: $orange;
+      border-radius: 4px;
+    }
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: 380px; // Prevents section resize on hover
+    }
+  }
 
   .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    will-change: transform, opacity;
     transition: transform 0.3s ease;
-    min-height: 200px;
-    will-change: transform, opacity; // Performance optimization for animations
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+    }
 
     &:hover {
-      transform: translateY(-8px);
+      transform: scale(1.05);
 
-      .step-number {
+      .step-icon {
         transform: scale(1.1);
-        box-shadow: 0 10px 30px rgba($gold, 0.4);
+        box-shadow: 0 10px 30px rgba($orange, 0.3);
+        border-color: $gold;
+      }
+
+      .step-description {
+        opacity: 1;
+        max-height: 200px;
       }
     }
   }
 
-  .process-line {
-    will-change: transform; // Performance optimization
-  }
-
-  .step-number {
-    background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
-    box-shadow: 0 4px 20px rgba($gold, 0.3);
+  .step-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 6px solid $orange;
+    background: #fff;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba($orange, 0.2);
     transition: all 0.3s ease;
     position: relative;
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, $gold-light, $gold);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
+    @media (min-width: 768px) {
+      width: 110px;
+      height: 110px;
     }
 
-    &:hover::before {
-      opacity: 1;
-    }
+    img {
+      width: 45px;
+      height: 45px;
+      filter: brightness(0) saturate(100%) invert(58%) sepia(81%) saturate(1512%) hue-rotate(359deg) brightness(102%) contrast(98%);
+      transition: filter 0.3s ease;
 
-    span {
-      position: relative;
-      z-index: 1;
+      @media (min-width: 768px) {
+        width: 50px;
+        height: 50px;
+      }
     }
   }
-}
 
-// Responsive adjustments
-@media (max-width: 768px) {
-  .process-section {
-    .process-step {
-      margin-bottom: 2rem;
+  .step-content {
+    flex: 1;
+  }
 
-      &:last-child {
-        margin-bottom: 0;
+  .step-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.75rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  .step-description {
+    font-size: 0.938rem;
+    line-height: 1.6;
+    color: #888;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    margin-top: 0.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 0.938rem;
+    }
+  }
+
+  .step-dash {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      position: absolute;
+      top: 50px;
+      right: -35px;
+      z-index: 1;
+
+      svg {
+        width: 60px;
+        height: 8px;
       }
+    }
+
+    @media (min-width: 1024px) {
+      right: -45px;
+
+      svg {
+        width: 70px;
+      }
+    }
+  }
+
+  // Mobile: Always show descriptions
+  @media (max-width: 767px) {
+    .step-description {
+      opacity: 1;
+      max-height: none;
     }
   }
 }
@@ -80,4 +177,16 @@ $gold-light: #D4B584;
 
 .border-gold {
   border-color: $gold;
+}
+
+.bg-orange {
+  background-color: $orange;
+}
+
+.text-orange {
+  color: $orange;
+}
+
+.border-orange {
+  border-color: $orange;
 }

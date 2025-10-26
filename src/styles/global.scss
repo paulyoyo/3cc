@@ -19,6 +19,10 @@
 
 // Base Styles
 @layer base {
+  html, body {
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Century Gothic', sans-serif;
   }

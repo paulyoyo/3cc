@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import Heading from "@ui/Heading";
+import HeroForm from "../forms/HeroForm";
 import "./Simulator.scss";
 
 export default function Simulator() {
   const [invoiceAmount, setInvoiceAmount] = useState(10000);
   const [paymentDays, setPaymentDays] = useState(30);
   const [selectedDays, setSelectedDays] = useState([30, 60, 90]);
+  const [showForm, setShowForm] = useState(false);
+  const cardRef = useRef(null);
+  const resultContentRef = useRef(null);
+  const formContentRef = useRef(null);
 
   // Interest rate from 3ccapital (can be made dynamic later via Prismic)
   const interestRate = 2.5; // 2.5% monthly rate
@@ -32,13 +38,94 @@ export default function Simulator() {
     setPaymentDays(days);
   };
 
+  const handleSolicitarClick = () => {
+    setShowForm(true);
+  };
+
+  // GSAP animation for card height transition
+  useEffect(() => {
+    if (!cardRef.current || !resultContentRef.current || !formContentRef.current) return;
+
+    const card = cardRef.current;
+    const resultContent = resultContentRef.current;
+    const formContent = formContentRef.current;
+
+    if (showForm) {
+      // Animate from result to form
+      // First show form temporarily to get its height
+      gsap.set(formContent, { display: "block", opacity: 0, visibility: "hidden" });
+      const formHeight = formContent.scrollHeight;
+      gsap.set(formContent, { display: "none", visibility: "visible" });
+
+      gsap.to(resultContent, {
+        opacity: 0,
+        y: -20,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          gsap.set(resultContent, { display: "none" });
+          gsap.set(formContent, { display: "block", opacity: 0, y: 20 });
+        },
+      });
+
+      gsap.to(card, {
+        height: formHeight,
+        duration: 0.5,
+        ease: "power2.inOut",
+        delay: 0.3,
+        onComplete: () => {
+          gsap.to(formContent, {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+          gsap.set(card, { height: "auto" });
+        },
+      });
+    } else {
+      // Animate from form to result
+      // First show result temporarily to get its height
+      gsap.set(resultContent, { display: "block", opacity: 0, visibility: "hidden" });
+      const resultHeight = resultContent.scrollHeight;
+      gsap.set(resultContent, { display: "none", visibility: "visible" });
+
+      gsap.to(formContent, {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          gsap.set(formContent, { display: "none" });
+          gsap.set(resultContent, { display: "block", opacity: 0, y: -20 });
+        },
+      });
+
+      gsap.to(card, {
+        height: resultHeight,
+        duration: 0.5,
+        ease: "power2.inOut",
+        delay: 0.3,
+        onComplete: () => {
+          gsap.to(resultContent, {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+          gsap.set(card, { height: "auto" });
+        },
+      });
+    }
+  }, [showForm]);
+
   return (
     <section className="simulator-section bg-gray-600">
       <div className="container mx-auto px-4 max-w-6xl">
-        <Heading title="Simulador" white />
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div className="space-y-8 appear-down">
+            <Heading title="Simulador" white />
+
             <div className="input-group">
               <label
                 htmlFor="invoiceAmount"
@@ -104,23 +191,62 @@ export default function Simulator() {
                 ></div>
               </div>
             </div>
+
+            {showForm && (
+              <button
+                type="button"
+                onClick={() => setShowForm(false)}
+                className="back-button flex items-center gap-2 text-white hover:text-vivid-orange transition-colors duration-300 group"
+              >
+                <svg
+                  className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+                <span className="font-medium">Volver al resultado</span>
+              </button>
+            )}
           </div>
 
-          <div className="result-card appear-down bg-white rounded-2xl p-8 text-center shadow-xl">
-            <p className="text-lg md:text-xl text-gray-600 mb-4">Recibe hoy</p>
-            <div className="result-amount text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              S/{" "}
-              {calculateAdvance().toLocaleString("es-PE", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
+          <div
+            ref={cardRef}
+            className="result-card appear-down bg-white rounded-2xl p-8 shadow-xl overflow-hidden"
+          >
+            <div ref={resultContentRef} className="result-content text-center">
+              <p className="text-lg md:text-xl text-gray-600 mb-4">
+                Recibe hoy
+              </p>
+              <div className="result-amount text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                S/{" "}
+                {calculateAdvance().toLocaleString("es-PE", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
+              <button
+                type="button"
+                onClick={handleSolicitarClick}
+                className="cta-button w-full bg-gold hover:bg-gold-dark text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg"
+              >
+                Solicitar
+              </button>
             </div>
-            <button
-              type="button"
-              className="cta-button w-full bg-gold hover:bg-gold-dark text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg"
+
+            <div
+              ref={formContentRef}
+              className="form-content"
+              style={{ display: "none" }}
             >
-              Solicitar
-            </button>
+              <HeroForm calculatedAmount={calculateAdvance()} />
+            </div>
           </div>
         </div>
       </div>
