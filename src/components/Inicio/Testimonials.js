@@ -76,11 +76,11 @@ export default function Testimonials() {
           <Swiper options={swiperOptions} className="testimonials-swiper">
             {testimonials.map(({ node: { data } }, index) => (
               <SwiperSlide key={index}>
-                <div className="testimonial-content rounded-2xl p-8 md:p-12">
+                <div className="testimonial-content rounded-2xl p-8 md:p-12 backdrop-blur-md transition-all duration-500">
                   <p className="text-lg md:text-xl text-white leading-relaxed mb-6 text-center">
                     {data.texto.text}
                   </p>
-                  <p className="text-base md:text-lg text-gold font-semibold text-center mb-2">
+                  <p className="text-base md:text-lg text-vivid-orange font-semibold text-center mb-2">
                     {data.autor.text}
                   </p>
                   <p className="text-sm md:text-base text-white/70 text-center">

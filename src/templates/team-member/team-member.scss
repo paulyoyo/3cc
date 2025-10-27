@@ -1,6 +1,3 @@
-$gold: #C4A574;
-$gold-dark: #A68A5F;
-
 .team-member-template {
   .team-hero {
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
@@ -56,14 +53,14 @@ $gold-dark: #A68A5F;
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: $gold;
+      background: #fb9b0d;
       color: #fff;
       transition: all 0.3s ease;
 
       &:hover {
-        background: $gold-dark;
+        background: #facd89;
         transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(196, 165, 116, 0.4);
+        box-shadow: 0 5px 15px rgba(251, 155, 13, 0.4);
       }
 
       i {
@@ -80,7 +77,7 @@ $gold-dark: #A68A5F;
         transform: translateX(5px);
 
         i {
-          color: $gold;
+          color: #fb9b0d;
         }
       }
 

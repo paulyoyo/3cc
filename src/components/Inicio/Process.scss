@@ -1,9 +1,4 @@
 // Process Component Styles
-// Colors matching 3C Capital branding
-$gold: #C4A574;
-$gold-dark: #A68A5F;
-$gold-light: #D4B584;
-$orange: #FB9B0D;
 
 .process-section {
   padding: 4rem 0 5rem 0;
@@ -20,7 +15,7 @@ $orange: #FB9B0D;
       width: 70%;
       max-width: 500px;
       height: 4px;
-      background: $orange;
+      background: #fb9b0d;
       border-radius: 4px;
     }
   }
@@ -59,8 +54,8 @@ $orange: #FB9B0D;
 
       .step-icon {
         transform: scale(1.1);
-        box-shadow: 0 10px 30px rgba($orange, 0.3);
-        border-color: $gold;
+        box-shadow: 0 10px 30px rgba(251, 155, 13, 0.3);
+        border-color: #facd89;
       }
 
       .step-description {
@@ -77,10 +72,10 @@ $orange: #FB9B0D;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 6px solid $orange;
+    border: 6px solid #fb9b0d;
     background: #fff;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 20px rgba($orange, 0.2);
+    box-shadow: 0 4px 20px rgba(251, 155, 13, 0.2);
     transition: all 0.3s ease;
     position: relative;
 
@@ -166,27 +161,3 @@ $orange: #FB9B0D;
   }
 }
 
-// Custom utilities for Tailwind
-.bg-gold {
-  background-color: $gold;
-}
-
-.text-gold {
-  color: $gold;
-}
-
-.border-gold {
-  border-color: $gold;
-}
-
-.bg-orange {
-  background-color: $orange;
-}
-
-.text-orange {
-  color: $orange;
-}
-
-.border-orange {
-  border-color: $orange;
-}

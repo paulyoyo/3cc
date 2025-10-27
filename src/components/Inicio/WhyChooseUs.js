@@ -106,8 +106,7 @@ export default function WhyChooseUs() {
             {brands.map((brand) => (
               <div
                 key={brand.id}
-                className="brand-circle reveal-img w-full aspect-square rounded-full flex items-center justify-center hover:shadow-xl transition-all hover:scale-105"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="brand-circle reveal-img w-full aspect-square rounded-full flex items-center justify-center hover:shadow-xl transition-all hover:scale-105 hover:rotate-2 hover:bg-gradient-to-br hover:from-vivid-orange hover:to-soft-orange bg-gray-100 feature-icon-box cursor-pointer group"
               >
                 {getBrandImage(brand.image)}
               </div>

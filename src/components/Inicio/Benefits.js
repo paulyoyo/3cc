@@ -89,10 +89,10 @@ export default function Benefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.id}
-              className="benefit-card fade-top bg-vivid-orange rounded-2xl p-8 text-center text-white transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center justify-center"
+              className="benefit-card fade-top bg-gradient-to-br from-desaturated-dark-orange to-dark-grayish-orange rounded-2xl p-8 text-center text-white transition-all hover:shadow-[0_20px_40px_rgba(135,116,88,0.4)] hover:-translate-y-2 flex flex-col items-center justify-center group"
               style={{ height: "320px" }}
             >
-              <div className="icon-wrapper mb-6 flex justify-center">
+              <div className="icon-wrapper mb-6 flex justify-center transition-transform group-hover:scale-110">
                 {getIconImage(benefit.icon)}
               </div>
               <h3 className="font-bold mb-3" style={{ fontSize: "36px" }}>

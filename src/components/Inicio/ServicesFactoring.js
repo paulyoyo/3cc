@@ -56,18 +56,12 @@ export default function ServicesFactoring() {
           <Swiper options={swiperOptions} className="services-swiper">
             {services.map((service) => (
               <SwiperSlide key={service.id}>
-                <div
-                  className="service-card rounded-2xl p-8 text-white transition-all hover:shadow-2xl hover:-translate-y-2 group relative"
-                  style={{
-                    border: "1px solid white",
-                    background: "transparent",
-                  }}
-                >
+                <div className="service-card rounded-2xl p-8 text-white transition-all hover:shadow-2xl hover:-translate-y-2 hover:z-10 group relative h-full min-h-[350px] flex flex-col z-[1] border border-white bg-transparent">
                   <div className="icon-wrapper mb-6 flex justify-start relative z-10">
                     <img
                       src={service.icon}
                       alt={service.title}
-                      className="w-28 h-28"
+                      className="w-28 h-28 transition-all group-hover:scale-110"
                     />
                   </div>
                   <h3 className="text-xl md:text-2xl font-normal mb-4 relative z-10">
@@ -76,13 +70,7 @@ export default function ServicesFactoring() {
                   <p className="text-base text-white/90 leading-relaxed relative z-10">
                     {service.description}
                   </p>
-                  <div
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity z-0"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #877458 0%, #a4988b 100%)",
-                    }}
-                  />
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity z-0 bg-gradient-to-br from-desaturated-dark-orange to-dark-grayish-orange" />
                 </div>
               </SwiperSlide>
             ))}

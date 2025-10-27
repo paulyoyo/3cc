@@ -144,7 +144,7 @@ export default function Simulator() {
                   step="1000"
                   className="flex-1"
                   style={{
-                    accentColor: "#FB9B0D",
+                    accentColor: "#fb9b0d",
                   }}
                 />
                 <input
@@ -171,9 +171,9 @@ export default function Simulator() {
                     type="button"
                     onClick={() => handleDaySelection(days)}
                     aria-pressed={paymentDays === days}
-                    className={`day-button flex-1 px-6 py-3 rounded-lg font-semibold transition-all ${
+                    className={`day-button flex-1 px-6 py-3 rounded-lg font-semibold transition-all hover:-translate-y-0.5 ${
                       paymentDays === days
-                        ? "bg-vivid-orange text-white shadow-lg"
+                        ? "bg-vivid-orange text-white shadow-[0_8px_20px_rgba(251,155,13,0.4)] -translate-y-0.5"
                         : "bg-white text-gray-700 hover:bg-gray-100"
                     }`}
                   >
@@ -196,7 +196,7 @@ export default function Simulator() {
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="back-button flex items-center gap-2 text-white hover:text-vivid-orange transition-colors duration-300 group"
+                className="back-button mt-6 px-5 py-3 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md flex items-center gap-2 text-white hover:bg-white/15 hover:border-desaturated-dark-orange/50 hover:-translate-x-1 hover:shadow-[0_4px_12px_rgba(135,116,88,0.2)] active:-translate-x-0.5 transition-all duration-300 group"
               >
                 <svg
                   className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300"
@@ -224,7 +224,7 @@ export default function Simulator() {
               <p className="text-lg md:text-xl text-gray-600 mb-4">
                 Recibe hoy
               </p>
-              <div className="result-amount text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <div className="result-amount text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-br from-desaturated-dark-orange to-dark-grayish-orange bg-clip-text text-transparent">
                 S/{" "}
                 {calculateAdvance().toLocaleString("es-PE", {
                   minimumFractionDigits: 2,
@@ -234,7 +234,7 @@ export default function Simulator() {
               <button
                 type="button"
                 onClick={handleSolicitarClick}
-                className="cta-button w-full bg-gold hover:bg-gold-dark text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg"
+                className="btn w-full"
               >
                 Solicitar
               </button>

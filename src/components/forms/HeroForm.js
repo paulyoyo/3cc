@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { gsap } from "gsap";
+import axios from "axios";
 import PropTypes from "prop-types";
 
 export default function HeroForm({ calculatedAmount = null }) {
@@ -43,40 +44,56 @@ export default function HeroForm({ calculatedAmount = null }) {
     }
   }, []);
 
+  const handleServerResponse = (ok, msg) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg },
+    });
+    if (ok) {
+      reset();
+    }
+  };
+
   const onSubmit = async (data) => {
     setServerState({ submitting: true, status: null });
 
-    try {
-      // Include calculated amount in form data if present
-      const formData = {
-        ...data,
-        ...(calculatedAmount && { montoCalculado: calculatedAmount }),
-      };
+    // Create FormData object
+    const formData = new FormData();
 
-      // TODO: Replace with actual API endpoint
-      console.log("Form data:", formData);
+    // Add API key (hidden field)
+    formData.append("apiKey", "sf_glk75h5ajf1jlnin97niddi7");
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Add honeypot field
+    formData.append("_gotcha", "");
 
-      setServerState({
-        submitting: false,
-        status: {
-          ok: true,
-          msg: "¡Gracias! Nos pondremos en contacto pronto.",
-        },
-      });
+    // Add form fields
+    formData.append("nombre", data.nombre);
+    formData.append("email", data.email);
+    formData.append("telefono", data.telefono);
+    formData.append("empresa", data.empresa);
 
-      reset();
-    } catch (error) {
-      setServerState({
-        submitting: false,
-        status: {
-          ok: false,
-          msg: "Hubo un error. Por favor intenta de nuevo.",
-        },
-      });
+    // Add calculated amount if present
+    if (calculatedAmount) {
+      formData.append("montoCalculado", calculatedAmount);
     }
+
+    axios({
+      method: "post",
+      url: "https://api.staticforms.xyz/submit",
+      data: formData,
+    })
+      .then((r) => {
+        handleServerResponse(
+          true,
+          "¡Gracias! Tu mensaje fue enviado satisfactoriamente."
+        );
+      })
+      .catch((r) => {
+        handleServerResponse(
+          false,
+          r.response?.data?.error || "Hubo un error. Por favor intenta de nuevo."
+        );
+      });
   };
 
 HeroForm.propTypes = {

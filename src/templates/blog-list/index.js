@@ -18,12 +18,11 @@ export default function BlogListTemplate({ data, pageContext }) {
     <Layout>
       <section className="blog-list-hero bg-gray-600">
         <div className="container mx-auto px-4 max-w-6xl py-20 text-center">
-          <h1 className="text-white text-4xl md:text-5xl font-bold uppercase mb-4">
-            Noticias
-          </h1>
-          <p className="text-white/80 text-lg">
-            Mantente informado con las últimas novedades de 3C Capital
-          </p>
+          <Heading
+            title="Noticias"
+            subtitle="Mantente informado con las últimas novedades de 3C Capital"
+            white
+          />
         </div>
       </section>
 
@@ -35,7 +34,7 @@ export default function BlogListTemplate({ data, pageContext }) {
               return (
                 <article
                   key={uid}
-                  className="blog-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  className="blog-card bg-white rounded-[20px] shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   {data.foto?.gatsbyImageData && (
                     <Link to={`/noticias/${uid}`}>
@@ -49,9 +48,7 @@ export default function BlogListTemplate({ data, pageContext }) {
 
                   <div className="p-6">
                     {data.fecha && (
-                      <p className="text-gold text-sm mb-2">
-                        {data.fecha}
-                      </p>
+                      <p className="text-gold text-sm mb-2">{data.fecha}</p>
                     )}
 
                     <Link to={`/noticias/${uid}`}>
@@ -82,10 +79,7 @@ export default function BlogListTemplate({ data, pageContext }) {
           {numberOfPages > 1 && (
             <nav className="pagination flex justify-center items-center gap-4 mt-12">
               {!isFirst && (
-                <Link
-                  to={prevPage}
-                  className="pagination-link px-4 py-2 bg-white rounded shadow hover:bg-gold hover:text-white transition-colors"
-                >
+                <Link to={prevPage} className="btn">
                   ← Anterior
                 </Link>
               )}
@@ -107,10 +101,7 @@ export default function BlogListTemplate({ data, pageContext }) {
               </div>
 
               {!isLast && (
-                <Link
-                  to={nextPage}
-                  className="pagination-link px-4 py-2 bg-white rounded shadow hover:bg-gold hover:text-white transition-colors"
-                >
+                <Link to={nextPage} className="btn">
                   Siguiente →
                 </Link>
               )}

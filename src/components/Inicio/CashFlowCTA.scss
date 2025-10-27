@@ -1,6 +1,4 @@
 // CashFlowCTA Component Styles
-$gold: #C4A574;
-$gold-dark: #A68A5F;
 
 .cashflow-cta-section {
   position: relative;
@@ -15,7 +13,7 @@ $gold-dark: #A68A5F;
     bottom: 0;
     background: radial-gradient(
       circle at center,
-      rgba($gold, 0.05) 0%,
+      rgba(251, 155, 13, 0.05) 0%,
       transparent 70%
     );
     pointer-events: none;
@@ -36,7 +34,7 @@ $gold-dark: #A68A5F;
   }
 
   .cta-button {
-    background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
+    background: linear-gradient(135deg, #fb9b0d 0%, #facd89 100%);
     animation: fadeInUp 0.6s ease 0.4s backwards;
     position: relative;
     overflow: hidden;
@@ -60,7 +58,7 @@ $gold-dark: #A68A5F;
     }
 
     &:hover {
-      box-shadow: 0 10px 40px rgba($gold, 0.5);
+      box-shadow: 0 10px 40px rgba(251, 155, 13, 0.5);
     }
 
     &:active {

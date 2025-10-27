@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import logo from "@images/logo-3cc.png";
 import useSticky from "@hooks/useSticky";
-import { OffCanvas, OffCanvasHeader, OffCanvasBody } from "@components/OffCanvas";
+import {
+  OffCanvas,
+  OffCanvasHeader,
+  OffCanvasBody,
+} from "@components/OffCanvas";
 import "./Header.scss";
 
 export default function Header() {
@@ -29,7 +33,9 @@ export default function Header() {
           <div className="header__container">
             {/* Logo */}
             <div className="header__logo">
-              <img src={logo} alt="3C Capital Logo" className="h-8 md:h-12" />
+              <Link to="/">
+                <img src={logo} alt="3C Capital Logo" className="h-8 md:h-12" />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -51,7 +57,10 @@ export default function Header() {
 
             {/* CTA Button */}
             <div className="header__cta">
-              <Link to="/contacto" className="header__cta-button">
+              <Link
+                to="https://wa.me/51913803964"
+                className="header__cta-button"
+              >
                 Contactar
               </Link>
             </div>
@@ -98,7 +107,7 @@ export default function Header() {
               ))}
               <li className="offcanvas__nav-item">
                 <Link
-                  to="/contacto"
+                  to="https://wa.me/51913803964"
                   className="offcanvas__nav-cta"
                   onClick={toggleOffCanvas}
                 >

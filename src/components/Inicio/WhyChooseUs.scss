@@ -1,6 +1,4 @@
 // WhyChooseUs Component Styles
-$gold: #C4A574;
-$gold-dark: #A68A5F;
 
 .why-choose-us-section {
   .content-column {
@@ -8,10 +6,6 @@ $gold-dark: #A68A5F;
 
     h2 {
       line-height: 1.2;
-    }
-
-    h3 {
-      color: $gold;
     }
 
     p {
@@ -25,21 +19,6 @@ $gold-dark: #A68A5F;
 
   .features-grid {
     animation: fadeInRight 0.8s ease;
-
-    .feature-icon-box {
-      transition: all 0.3s ease;
-      cursor: pointer;
-
-      &:hover {
-        background: linear-gradient(135deg, $gold 0%, $gold-dark 100%);
-        transform: scale(1.05) rotate(2deg);
-
-        span {
-          opacity: 1;
-          filter: brightness(1.2);
-        }
-      }
-    }
   }
 }
 

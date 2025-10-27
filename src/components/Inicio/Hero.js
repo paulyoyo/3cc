@@ -29,7 +29,7 @@ export default function Hero() {
             ¡Y recibe dinero en tu cuenta hoy mismo!
           </p>
 
-          <div className="hero__stats">
+          <div className="hero__stats gap-4">
             <div className="hero__stat">
               <h3 className="hero__stat-number">
                 +

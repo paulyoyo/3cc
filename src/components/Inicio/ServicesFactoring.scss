@@ -1,11 +1,6 @@
 // ServicesFactoring Component Styles
-$gold: #C4A574;
-$gold-dark: #A68A5F;
-$gray-darker: #4a4a4a;
-$orange: #FB9B0D;
 
 .services-factoring-section {
-  background-color: $gray-darker;
   padding: 4rem 0;
   overflow: visible;
 
@@ -29,80 +24,6 @@ $orange: #FB9B0D;
       overflow: visible;
     }
 
-    .service-card {
-      transition: all 0.3s ease;
-      height: 100%;
-      min-height: 350px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      z-index: 1;
-
-      &:hover {
-        transform: translateY(-8px);
-        z-index: 10;
-
-        .icon-wrapper img {
-          transform: scale(1.1);
-        }
-      }
-
-      .icon-wrapper {
-        img {
-          transition: all 0.3s ease;
-        }
-      }
-    }
-
-    // Swiper Navigation Buttons
-    .swiper-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid white;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        background: $orange;
-        border-color: $orange;
-        transform: translateY(-50%) scale(1.1);
-      }
-
-      &.swiper-btn-prev {
-        left: -25px;
-      }
-
-      &.swiper-btn-next {
-        right: -25px;
-      }
-
-      &.swiper-button-disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-      }
-
-      i {
-        font-size: 1.2rem;
-      }
-    }
-
-    // Hide navigation on mobile
-    @media (max-width: 767px) {
-      .swiper-btn {
-        display: none;
-      }
-    }
-
     // Swiper Pagination Dots
     :global {
       .swiper-pagination {
@@ -117,7 +38,7 @@ $orange: #FB9B0D;
         transition: all 0.3s ease;
 
         &.swiper-pagination-bullet-active {
-          background: $orange;
+          background: #fb9b0d;
           width: 30px;
           border-radius: 6px;
         }

@@ -37,7 +37,7 @@ export default function LatestPosts() {
   }
 
   return (
-    <section className="latest-posts-section py-16 md:py-24 bg-white">
+    <section className="latest-posts-section py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex justify-between items-center mb-12">
           <div>
@@ -46,10 +46,7 @@ export default function LatestPosts() {
               subtitle="Mantente informado con nuestras últimas novedades"
             />
           </div>
-          <Link
-            to="/noticias"
-            className="hidden md:inline-block bg-gold text-white px-6 py-3 rounded hover:bg-gold/80 transition-colors"
-          >
+          <Link to="/noticias" className="btn hidden md:inline-flex">
             Ver todas →
           </Link>
         </div>
@@ -60,7 +57,7 @@ export default function LatestPosts() {
             return (
               <article
                 key={uid}
-                className="blog-card appear-down bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="blog-card appear-down bg-white rounded-[20px] shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
                 {data.foto?.gatsbyImageData && (
                   <Link to={`/noticias/${uid}`}>
@@ -103,10 +100,7 @@ export default function LatestPosts() {
         </div>
 
         <div className="text-center mt-12 md:hidden">
-          <Link
-            to="/noticias"
-            className="inline-block bg-gold text-white px-6 py-3 rounded hover:bg-gold/80 transition-colors"
-          >
+          <Link to="/noticias" className="btn">
             Ver todas las noticias →
           </Link>
         </div>

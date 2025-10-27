@@ -1,17 +1,14 @@
-$gold: #C4A574;
-$gold-dark: #A68A5F;
-
 .team-section {
   // Swiper navigation buttons styling
   :global(.swiper-btn) {
-    background: $gold;
+    background: #fb9b0d;
     color: #fff;
     width: 50px;
     height: 50px;
     border-radius: 50%;
 
     &:hover {
-      background: $gold-dark;
+      background: #facd89;
     }
 
     i {
@@ -21,7 +18,7 @@ $gold-dark: #A68A5F;
 
   // Swiper pagination styling
   :global(.swiper-pagination-bullet) {
-    background: $gold;
+    background: #fb9b0d;
     opacity: 0.5;
 
     &:global(.swiper-pagination-bullet-active) {

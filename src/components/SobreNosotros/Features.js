@@ -130,12 +130,10 @@ export default function Features() {
             <div className="lg:col-span-6 order-last lg:order-last lg:ml-auto">
               <div className="screen-container ml-auto">
                 <div
-                  className="oval-shape"
-                  style={{ background: "#C4A574" }}
+                  className="oval-shape bg-vivid-orange"
                 ></div>
                 <div
-                  className="oval-shape"
-                  style={{ background: "#A68A5F" }}
+                  className="oval-shape bg-soft-orange"
                 ></div>
                 <StaticImage
                   src="../../assets/images/mission-bg.jpg"

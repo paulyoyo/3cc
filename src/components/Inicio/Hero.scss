@@ -22,18 +22,6 @@ $large: 1200px;
   background: #000000;
   position: relative;
   overflow: hidden;
-  min-height: 600px;
-  padding: 10px 10px 40px;
-
-  @media (min-width: $tablet) {
-    min-height: 700px;
-    padding: 120px 40px 100px;
-  }
-
-  @media (min-width: $desktop) {
-    min-height: 800px;
-    padding: 100px 20px 80px;
-  }
 
   &__container {
     display: grid;
@@ -91,12 +79,7 @@ $large: 1200px;
 
   &__stats {
     display: flex;
-    gap: 40px;
     flex-wrap: wrap;
-
-    @media (min-width: $tablet) {
-      gap: 60px;
-    }
   }
 
   &__stat {
