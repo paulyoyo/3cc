@@ -1,10 +1,12 @@
 import React from "react";
+import Layout from "../components/Layout/Layout";
 
 const PoliticasPrivacidad = () => {
   return (
-    <section className="relative md:py-24 py-16 bg-white">
-      <div className="container mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4">Política de Privacidad</h1>
+    <Layout>
+      <section className="relative md:py-24 py-16 bg-white">
+        <div className="container mx-auto p-6">
+          <h1 className="text-3xl font-bold mb-4">Política de Privacidad</h1>
         <p>
           El presente escrito describe las políticas, términos y condiciones
           generales (los “Términos y Condiciones Generales”) aplicables al uso
@@ -82,8 +84,9 @@ const PoliticasPrivacidad = () => {
           presente Política será inmediatamente publicada en la Plataforma, por
           lo que se recomienda al Usuario revisarla periódicamente.
         </p>
-      </div>
-    </section>
+        </div>
+      </section>
+    </Layout>
   );
 };
 

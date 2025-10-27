@@ -13,6 +13,7 @@ export default function Features() {
   const block1Ref = useRef(null);
   const block2Ref = useRef(null);
   const block3Ref = useRef(null);
+  const block4Ref = useRef(null);
 
   useEffect(() => {
     // Animate first block (Mission)
@@ -113,6 +114,41 @@ export default function Features() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: block3Ref.current,
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+
+    // Animate fourth block (Compliance)
+    if (block4Ref.current) {
+      gsap.fromTo(
+        block4Ref.current.querySelector(".text-wrapper"),
+        { autoAlpha: 0, x: -30 },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: block4Ref.current,
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        block4Ref.current.querySelector(".screen-container"),
+        { autoAlpha: 0, x: 30 },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: block4Ref.current,
             start: "top 75%",
             toggleActions: "play none none none",
           },
@@ -291,7 +327,7 @@ export default function Features() {
         </div>
 
         {/* Portfolio Structure Block */}
-        <div ref={block3Ref} className="block-style-twentyThree">
+        <div ref={block3Ref} className="block-style-twentyThree mb-32 md:mb-24">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 order-last lg:order-last lg:ml-auto">
               <div className="screen-container ml-auto">
@@ -346,6 +382,56 @@ export default function Features() {
                     />
                   </svg>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Compliance Block */}
+        <div ref={block4Ref} className="block-style-twentyThree">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6">
+              <div className="screen-container mr-auto">
+                <div
+                  className="oval-shape"
+                  style={{ background: "#877458" }}
+                ></div>
+                <div
+                  className="oval-shape"
+                  style={{ background: "#a4988b" }}
+                ></div>
+                <StaticImage
+                  src="../../assets/images/mission-bg.jpg"
+                  alt="Cumplimiento"
+                  className="shapes shape-two"
+                  placeholder="blurred"
+                  loading="lazy"
+                  quality={90}
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-5 lg:ml-auto">
+              <div className="text-wrapper">
+                <h6>Cumplimiento</h6>
+                <h3 className="title">Protegemos tus Derechos y Nuestra Integridad</h3>
+                <p>
+                  En 3C Capital, nos aseguramos de mantener los más altos estándares
+                  éticos y profesionales, guiando el actuar de nuestros
+                  colaboradores, directores y asesores del directorio.
+                </p>
+                <p className="mt-4">
+                  Nos comprometemos a que tu decisión de compra, la transparencia en
+                  la información y el reporte continuo sean respetados. Si consideras
+                  que esta promesa no se está cumpliendo, este canal te permitirá
+                  comunicarte con nuestro Comité Independiente.
+                </p>
+                <p className="mt-4">
+                  Además, nos comprometemos a proteger los valores fundamentales en la
+                  correcta gestión de los negocios y la administración de la empresa.
+                  Si sospechas la comisión de cualquier delito contemplado en las
+                  leyes de la República del Perú, te pedimos que lo informes a nuestro
+                  Comité de Inversión y Estrategia Independiente.
+                </p>
               </div>
             </div>
           </div>

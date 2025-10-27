@@ -64,7 +64,15 @@ export default function Footer() {
         </div>
 
         <div className="footer-copyright pt-6 text-center">
-          <p className="text-white/80">Copyright {currentYear}</p>
+          <p className="text-white/80">
+            Copyright {currentYear} |{" "}
+            <Link
+              to="/politicas"
+              className="text-white/60 hover:text-white text-xs transition-colors"
+            >
+              Política de Privacidad
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

@@ -84,10 +84,10 @@ export default function WhyChooseUs() {
               Brindamos asesoría financiera de primer nivel a nuestros clientes
             </h3>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-              Crece Group Capital S.A.C. – 3C Capital es una empresa de
-              factoring con amplia experiencia. Contamos con un equipo de
-              asesores financieros con muchos años en el rubro, capaces de
-              proporcionar respuestas rápidas y confiables a nuestros clientes.
+              Cristal Clear Capital S.A.C. ("3C Capital") es una empresa de
+              factoring que opera con altos estándares de evaluación de riesgo,
+              enfocada en generar crecimiento de capital de manera consistente a
+              través de un portafolio selecto de clientes.
             </p>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed">
               Nos posiciona actualmente en el top 3 entre empresas de factoring
