@@ -1,199 +1,134 @@
 @use "sass:color";
 
-// Header Variables
-$header-height: 80px;
-$header-bg: #ffffff;
-$header-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-$header-sticky-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+// Styles that cannot be converted to Tailwind (pseudo-elements, complex animations, transforms)
 
-// Breakpoints
-$mobile: 768px;
-$tablet: 992px;
-$desktop: 1200px;
-
-// Header Container
-.header {
-  position: relative;
-  z-index: 999;
+// Sticky header animation
+.header__bottom--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.4s ease-out;
+}
 
-  &__bottom {
-    background: $header-bg;
-    box-shadow: $header-shadow;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+// Navigation Link Styles
+.header__nav-link {
+  font-size: 20px;
+  font-weight: 400;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
 
-    &--sticky {
-      position: fixed;
-      top: 0;
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  // Active state with pseudo-element underline
+  &--active {
+    color: #000;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
       left: 0;
       width: 100%;
-      z-index: 999;
-      box-shadow: $header-sticky-shadow;
-      animation: slideDown 0.4s ease-out;
-    }
-  }
-
-  &__container {
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: $header-height;
-
-    @media (min-width: $desktop) {
-      padding: 0 40px;
-    }
-  }
-
-  // Logo
-  &__logo {
-    display: flex;
-    align-items: center;
-
-    a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-      line-height: 0;
-
-      &:hover {
-        opacity: 0.8;
-        text-decoration: none;
-      }
-    }
-  }
-
-  // Desktop Navigation
-  &__nav {
-    display: none;
-
-    @media (min-width: $tablet) {
-      display: flex;
-      flex: 1;
-      justify-content: center;
-      margin: 0 40px;
-    }
-
-    &-list {
-      display: flex;
-      gap: 35px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    &-item {
-      margin: 0;
-    }
-
-    &-link {
-      font-size: 20px;
-      font-weight: 400;
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-
-      &:hover {
-        color: #000;
-        text-decoration: none;
-      }
-
-      &--active {
-        color: #000;
-        font-weight: 500;
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -8px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: #FB9B0D;
-        }
-      }
-    }
-  }
-
-  // CTA Button
-  &__cta {
-    display: none;
-
-    @media (min-width: $tablet) {
-      display: block;
-    }
-
-    &-button {
-      display: inline-block;
-      padding: 12px 28px;
-      background: var(--vivid-orange, #FB9B0D);
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 700;
-      border-radius: 15px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(251, 155, 13, 0.3);
-
-      &:hover {
-        background: color.adjust(#FB9B0D, $lightness: -8%);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(251, 155, 13, 0.4);
-        text-decoration: none;
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-    }
-  }
-
-  // Mobile Toggle
-  &__mobile-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 28px;
-    height: 24px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10;
-
-    @media (min-width: $tablet) {
-      display: none;
-    }
-
-    span {
-      width: 28px;
-      height: 3px;
-      background: #000;
-      border-radius: 10px;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      transform-origin: center;
-    }
-
-    &--open {
-      span:nth-child(1) {
-        transform: rotate(45deg) translateY(8px);
-      }
-
-      span:nth-child(2) {
-        opacity: 0;
-        transform: translateX(-10px);
-      }
-
-      span:nth-child(3) {
-        transform: rotate(-45deg) translateY(-8px);
-      }
+      height: 2px;
+      background: #FB9B0D;
     }
   }
 }
 
-// Sticky Animation
+// CTA Button with complex hover effects
+.header__cta-button {
+  display: inline-block;
+  background: var(--vivid-orange, #FB9B0D);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  padding: 12px 28px;
+  font-size: 18px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(251, 155, 13, 0.3);
+
+  // Mobile styles - smaller button
+  &--mobile {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(251, 155, 13, 0.25);
+
+    // Reset to full size on tablet/desktop
+    @media (min-width: 992px) {
+      padding: 12px 28px;
+      font-size: 18px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(251, 155, 13, 0.3);
+    }
+  }
+
+  &:hover {
+    background: color.adjust(#FB9B0D, $lightness: -8%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(251, 155, 13, 0.4);
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Mobile Hamburger Menu with animated transforms
+.header__mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+
+  @media (min-width: 992px) {
+    display: none;
+  }
+
+  span {
+    width: 28px;
+    height: 3px;
+    background: #000;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform-origin: center;
+  }
+
+  &--open {
+    span:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+  }
+}
+
+// Sticky header slide-down animation
 @keyframes slideDown {
   from {
     transform: translateY(-100%);

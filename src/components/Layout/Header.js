@@ -25,24 +25,26 @@ export default function Header() {
 
   return (
     <>
-      <header ref={headerRef} className="header">
+      <header ref={headerRef} className="relative z-[999] w-full">
         <div
           ref={fixedRef}
-          className={`header__bottom ${sticky ? "header__bottom--sticky" : ""}`}
+          className={`bg-white shadow-[0_2px_10px_rgba(0,0,0,0.05)] transition-all duration-300 ease-[cubic-bezier(0.645,0.045,0.355,1)] ${
+            sticky ? "header__bottom--sticky" : ""
+          }`}
         >
-          <div className="header__container">
+          <div className="px-5 flex items-center justify-between h-20 xl:px-10">
             {/* Logo */}
-            <div className="header__logo">
-              <Link to="/">
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center no-underline transition-opacity duration-300 ease hover:opacity-80 leading-[0]">
                 <img src={logo} alt="3C Capital Logo" className="h-8 md:h-12" />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="header__nav">
-              <ul className="header__nav-list">
+            <nav className="hidden lg:flex flex-1 justify-center mx-10">
+              <ul className="flex gap-[35px] list-none m-0 p-0">
                 {navLinks.map((link) => (
-                  <li key={link.to} className="header__nav-item">
+                  <li key={link.to} className="m-0">
                     <Link
                       to={link.to}
                       className="header__nav-link"
@@ -55,30 +57,30 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* CTA Button */}
-            <div className="header__cta">
+            {/* CTA Button - Shows on all screen sizes */}
+            <div className="flex items-center gap-3">
               <Link
                 to="https://wa.me/51913803964"
-                className="header__cta-button"
+                className="header__cta-button header__cta-button--mobile"
               >
                 Contactar
               </Link>
-            </div>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              type="button"
-              className={`header__mobile-toggle ${
-                offCanvasOpen ? "header__mobile-toggle--open" : ""
-              }`}
-              onClick={toggleOffCanvas}
-              aria-label="Toggle mobile menu"
-              aria-expanded={offCanvasOpen}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+              {/* Mobile Menu Toggle */}
+              <button
+                type="button"
+                className={`header__mobile-toggle ${
+                  offCanvasOpen ? "header__mobile-toggle--open" : ""
+                }`}
+                onClick={toggleOffCanvas}
+                aria-label="Toggle mobile menu"
+                aria-expanded={offCanvasOpen}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -105,15 +107,6 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-              <li className="offcanvas__nav-item">
-                <Link
-                  to="https://wa.me/51913803964"
-                  className="offcanvas__nav-cta"
-                  onClick={toggleOffCanvas}
-                >
-                  Contacto
-                </Link>
-              </li>
             </ul>
           </nav>
         </OffCanvasBody>

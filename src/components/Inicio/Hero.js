@@ -28,7 +28,7 @@ export default function Hero() {
           <p className="hero__subtitle">
             ¡Y recibe dinero en tu cuenta hoy mismo!
           </p>
-
+          {/*
           <div className="hero__stats gap-4">
             <div className="hero__stat">
               <h3 className="hero__stat-number">
@@ -72,6 +72,7 @@ export default function Hero() {
               <p className="hero__stat-label">Empresarios financiados</p>
             </div>
           </div>
+          */}
         </div>
 
         <HeroForm />

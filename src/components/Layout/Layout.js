@@ -5,6 +5,7 @@ import RevealImages from "./Animations/RevealImages";
 import SplitTextAnimations from "./Animations/SplitTextAnimations";
 import Header from "./Header";
 import Footer from "./Footer";
+import StickyWhatsApp from "@ui/StickyWhatsApp";
 
 export default function Layout({ children }) {
   return (
@@ -16,6 +17,7 @@ export default function Layout({ children }) {
       <SplitTextAnimations />
       <main>{children}</main>
       <Footer />
+      <StickyWhatsApp />
     </div>
   );
 }
