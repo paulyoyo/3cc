@@ -21,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const singleBlogPage = path.resolve("./src/templates/blog-detail/index.js");
   const blogList = path.resolve("./src/templates/blog-list/index.js");
+  const teamMemberPage = path.resolve("./src/templates/team-member/index.js");
 
   const result = await graphql(`
     query {
@@ -70,6 +71,55 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicMiembro(sort: { data: { orden: ASC } }) {
+        edges {
+          node {
+            data {
+              contenido {
+                html
+              }
+              email {
+                text
+              }
+              foto {
+                gatsbyImageData
+              }
+              linkedin {
+                url
+              }
+              nombre {
+                text
+              }
+              puesto {
+                text
+              }
+            }
+            uid
+          }
+          next {
+            data {
+              nombre {
+                text
+              }
+              puesto {
+                text
+              }
+            }
+            uid
+          }
+          previous {
+            data {
+              nombre {
+                text
+              }
+              puesto {
+                text
+              }
+            }
+            uid
+          }
+        }
+      }
     }
   `);
 
@@ -105,6 +155,21 @@ exports.createPages = async ({ graphql, actions }) => {
         skip: index * postsPerPage,
         currentPage,
         numberOfPages,
+      },
+    });
+  });
+
+  // Create Team Member Pages
+
+  const teamMembers = result.data.allPrismicMiembro.edges;
+  teamMembers.forEach(({ node, next, previous }) => {
+    createPage({
+      path: `equipo/${node.uid}`,
+      component: teamMemberPage,
+      context: {
+        slug: node.uid,
+        next,
+        previous,
       },
     });
   });

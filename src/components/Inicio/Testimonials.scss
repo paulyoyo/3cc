@@ -16,6 +16,12 @@ $gray-dark: #666666;
   }
 
   .testimonial-carousel {
+    overflow: hidden;
+
+    .testimonials-swiper {
+      overflow: visible;
+    }
+
     .testimonial-content {
       backdrop-filter: blur(10px);
       transition: all 0.5s ease;

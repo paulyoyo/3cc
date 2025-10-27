@@ -1,35 +1,33 @@
 import React from "react";
 import Heading from "@ui/Heading";
+import { useStaticQuery, graphql } from "gatsby";
 import Swiper, { SwiperSlide } from "@ui/Swiper";
 import "./Testimonials.scss";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      id: 1,
-      text: "Excelente servicio de factoring. Nos ayudaron a mejorar nuestro flujo de caja de manera rápida y eficiente. El equipo de 3C Capital es muy profesional y comprometido.",
-      author: "María González",
-      company: "Distribuidora Lima SAC",
-    },
-    {
-      id: 2,
-      text: "Gracias a 3C Capital pudimos acceder a capital de trabajo inmediato. Su proceso es ágil y transparente. Altamente recomendados para empresas que necesitan liquidez.",
-      author: "Carlos Rodríguez",
-      company: "Textiles del Norte EIRL",
-    },
-    {
-      id: 3,
-      text: "La asesoría financiera que recibimos fue fundamental para el crecimiento de nuestra empresa. 3C Capital entiende las necesidades del mercado peruano.",
-      author: "Ana Martínez",
-      company: "Comercial San Miguel SRL",
-    },
-    {
-      id: 4,
-      text: "Llevamos trabajando con 3C Capital más de 2 años. Su servicio de factoring nos ha permitido mantener operaciones constantes sin preocuparnos por la cobranza.",
-      author: "Jorge Sánchez",
-      company: "Importaciones del Sur SAC",
-    },
-  ];
+  const data = useStaticQuery(graphql`
+    query {
+      allPrismicTestimonio {
+        edges {
+          node {
+            data {
+              autor {
+                text
+              }
+              empresa {
+                text
+              }
+              texto {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const testimonials = data.allPrismicTestimonio.edges;
 
   const swiperOptions = {
     slidesPerView: 1,
@@ -37,8 +35,9 @@ export default function Testimonials() {
     loop: true,
     autoplay: true,
     autoplayDelay: 5000,
-    navigation: true,
+    navigation: false,
     pagination: true,
+    centeredSlides: true,
   };
 
   return (
@@ -75,17 +74,17 @@ export default function Testimonials() {
 
         <div className="testimonial-carousel">
           <Swiper options={swiperOptions} className="testimonials-swiper">
-            {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id}>
+            {testimonials.map(({ node: { data } }, index) => (
+              <SwiperSlide key={index}>
                 <div className="testimonial-content rounded-2xl p-8 md:p-12">
                   <p className="text-lg md:text-xl text-white leading-relaxed mb-6 text-center">
-                    {testimonial.text}
+                    {data.texto.text}
                   </p>
                   <p className="text-base md:text-lg text-gold font-semibold text-center mb-2">
-                    {testimonial.author}
+                    {data.autor.text}
                   </p>
                   <p className="text-sm md:text-base text-white/70 text-center">
-                    {testimonial.company}
+                    {data.empresa.text}
                   </p>
                 </div>
               </SwiperSlide>

@@ -1,15 +1,15 @@
 import React from "react";
 import Layout from "@layout/Layout";
+import Hero from "@components/SobreNosotros/Hero";
 import Team from "@components/SobreNosotros/Team";
-import Mission from "@components/SobreNosotros/Mission";
-import WhyFactoring from "@components/SobreNosotros/WhyFactoring";
+import Features from "@components/SobreNosotros/Features";
 
 const SobreNosotrosPage = () => {
   return (
     <Layout>
+      <Hero />
       <Team />
-      <Mission />
-      <WhyFactoring />
+      <Features />
     </Layout>
   );
 };
