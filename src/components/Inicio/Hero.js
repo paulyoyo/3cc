@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="hero__content">
           <h1 className="hero__title">¡Cobra tus facturas por adelantado!</h1>
           <p className="hero__subtitle">
-            ¡Y recibe dinero en tu cuenta hoy mismo!
+            ¡Y recibe dinero en tu cuenta en 24 horas!
           </p>
           {/*
           <div className="hero__stats gap-4">
