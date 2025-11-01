@@ -90,9 +90,9 @@ export default function WhyChooseUs() {
               través de un portafolio selecto de clientes.
             </p>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-              Nos posiciona actualmente en el top 3 entre empresas de factoring
+              Nos posiciona actualmente en el top 10 entre empresas de factoring
               en el Perú. Nuestra posición es producto de brindar un servicio
-              diferenciado a nuestros clientes que en estos 7 años de
+              diferenciado a nuestros clientes que en estos 3 años de
               funcionamiento nos ha permitido trabajar con múltiples empresas de
               diversos rubros.
             </p>
