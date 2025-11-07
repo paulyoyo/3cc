@@ -139,8 +139,8 @@ export default function Simulator() {
                   id="invoiceAmountSlider"
                   value={invoiceAmount}
                   onChange={(e) => setInvoiceAmount(Number(e.target.value))}
-                  min="1000"
-                  max="100000"
+                  min="10000"
+                  max="500000"
                   step="1000"
                   className="flex-1"
                   style={{
@@ -152,8 +152,8 @@ export default function Simulator() {
                   id="invoiceAmount"
                   value={invoiceAmount}
                   onChange={(e) => setInvoiceAmount(Number(e.target.value))}
-                  min="1000"
-                  max="100000"
+                  min="10000"
+                  max="500000"
                   step="1000"
                   className="w-32 px-4 py-3 rounded-lg border-2 border-gray-400 bg-white text-gray-900 text-lg focus:outline-none focus:border-vivid-orange transition-colors"
                 />

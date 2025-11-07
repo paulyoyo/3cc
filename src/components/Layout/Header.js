@@ -60,8 +60,10 @@ export default function Header() {
             {/* CTA Button - Shows on all screen sizes */}
             <div className="flex items-center gap-3">
               <Link
-                to="https://wa.me/51913803964"
-                className="header__cta-button header__cta-button--mobile"
+                to="/#hero"
+                className={`header__cta-button header__cta-button--mobile ${
+                  sticky ? "header__cta-button--visible" : ""
+                }`}
               >
                 Contactar
               </Link>
