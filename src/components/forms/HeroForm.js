@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
+import { navigate } from "gatsby";
 import { gsap } from "gsap";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -51,6 +52,10 @@ export default function HeroForm({ calculatedAmount = null }) {
     });
     if (ok) {
       reset();
+      // Redirect to thank you page after successful submission
+      setTimeout(() => {
+        navigate("/gracias");
+      }, 500);
     }
   };
 
